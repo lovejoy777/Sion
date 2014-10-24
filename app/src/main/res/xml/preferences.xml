@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceCategory android:title="@string/uisettings">
+
+
+</PreferenceCategory>
+    <PreferenceCategory android:title="@string/advancedsettings">
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="enablerootaccess"
+            android:title="@string/enable_root" />
+    </PreferenceCategory>
+
+    <PreferenceScreen android:title="@string/xdaforum">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="http://forum.xda-developers.com/showthread.php?t=2747564"/>
+    </PreferenceScreen>
+
+</PreferenceScreen>

@@ -1,0 +1,52 @@
+<resources>
+
+    <string name="app_name">Sion</string>
+    <string name="aboutversion">Version #</string>
+    <string name="action_about">About</string>
+    <string name="action_changelog">Change Log</string>
+    <string name="action_settings">Settings</string>
+    <string name="version">version 0.02 beta </string>
+    <string name="developed">By Steve Lovejoy</string>
+    <string name="splashTitle">Sion</string>
+    <string name="switchTitle">Sion</string>
+    <string name="initdtitlechoose">Choose a File</string>
+    <string name="romtitlechoose">Choose Files</string>
+
+    <string name="action_instructions">Instructions</string>
+
+    <string name="aboutTV2">Developed by Steve Lovejoy </string>
+    <string name="aboutTV3">Sion is an app for installing files/scripts onto an android device,\nIts main aim is to be a user friendly way of doing this with the minimal chance of messing up your system etc. </string>
+    <string name="instructionsTV1">Select what type of file you are installing from the Home screen.</string>
+    <string name="instructionsTV2">Init.d</string>
+    <string name="instructionsTV3">If you select init.d You will find yourself in the File Chooser, Navigate to your chosen file and click it, it doesnt matter if its a .zip as this will unzip it for you. The file path will be displayed Please check it, Then press the install button. WAIT for the "install finished" text and make sure your happy with your choice before pressing the Reboot button as this will make the script take effect.</string>
+    <string name="instructionsTV4">Rom.zip</string>
+    <string name="instructionsTV5">If you select init.d You will find yourself in the File Chooser, Navigate to your chosen file and click it,</string>
+    <string name="ratereview">Please rate and review this app on the \nGoogle Play Store </string>
+    <string name="changelog">
+    \nVersion 0.03
+    \n
+    \nInitial release
+    </string>
+
+    <string name="cantopenfile">Cannot open this file</string>
+    <string name="copiedtoclipboard">Copied to clipboard.</string>
+    <string name="copy">Copy</string>
+    <string name="copyfail">Copy failed!</string>
+    <string name="copying">Copying</string>
+    <string name="copysuccsess">Successfully copied.</string>
+    <string name="uisettings">View settings</string>
+    <string name="advancedsettings">Advanced</string>
+    <string name="enable_root">Enable root access</string>
+    <string name="xdaforum">XDA forum</string>
+
+    <string name="action_donate">Donations</string>
+    <string name="buy_string1">Buy me a coffee £1.20</string>
+    <string name="clickme_string1">Click Me</string>
+    <string name="buy_string2">Buy me 2 coffee\'s £2.00</string>
+    <string name="clickme_string2">Click Me</string>
+    <string name="buy_string3">Buy me 3 coffee\'s £3.00</string>
+    <string name="clickme_string3">Click Me</string>
+    <string name="buy_string4">Buy me 4 coffee\'s £4.00</string>
+    <string name="clickme_string4">Click Me</string>
+
+</resources>

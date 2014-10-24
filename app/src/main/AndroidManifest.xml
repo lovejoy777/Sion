@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.sion.lovejoy777sa.sion" >
+
+    <uses-permission
+        android:name="android.permission.ACCESS_SUPERUSER" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission
+        android:name="android.permission.WRITE_INTERNAL_STORAGE" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission
+        android:name="android.permission.ACCESS_ALL_EXTERNAL_STORAGE" />
+    <uses-permission
+        android:name="android.permission.WRITE_MEDIA_STORAGE"
+        tools:ignore="ProtectedPermissions" />
+
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".Splash"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".menu"
+            android:label="Home"
+            android:icon="@drawable/ic_launcher" >
+            <intent-filter>
+                <action android:name="com.sion.lovejoy777sa.sion.MENU" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.sion.lovejoy777sa.sion.InitD"
+            android:label="Init.d"
+            android:icon="@drawable/ic_launcher" >
+            <intent-filter>
+                <action android:name="com.sion.lovejoy777sa.sion.INITD" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.sion.lovejoy777sa.sion.FileChooser"
+            android:label="Init.d Chooser"
+            android:icon="@drawable/ic_launcher" >
+            <intent-filter>
+                <action android:name="com.sion.lovejoy777sa.sion.FILECHOOSER" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.sion.lovejoy777sa.sion.RomsFileChooser"
+            android:label="Rom Chooser"
+            android:icon="@drawable/ic_launcher" >
+            <intent-filter>
+                <action android:name="com.sion.lovejoy777sa.sion.ROMSFILECHOOSER" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+
+
+        <activity
+            android:name="com.sion.lovejoy777sa.sion.Roms"
+            android:label="Roms"
+            android:icon="@drawable/ic_launcher" >
+            <intent-filter>
+                <action android:name="com.sion.lovejoy777sa.sion.ROMS" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.sion.lovejoy777sa.sion.Settings"
+            android:label="Instructions"
+            android:icon="@drawable/ic_launcher" >
+            <intent-filter>
+                <action android:name="android.intent.action.SETTINGS" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.sion.lovejoy777sa.sion.Instructions"
+            android:label="Instructions"
+            android:icon="@drawable/ic_launcher" >
+            <intent-filter>
+                <action android:name="android.intent.action.INSTRUCTIONS" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.sion.lovejoy777sa.sion.About"
+            android:label="About"
+            android:icon="@drawable/ic_launcher" >
+            <intent-filter>
+                <action android:name="android.intent.action.ABOUT" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.sion.lovejoy777sa.sion.ChangeLog"
+            android:label="ChangeLog"
+            android:icon="@drawable/ic_launcher" >
+            <intent-filter>
+                <action android:name="android.intent.action.CHANGELOG" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.sion.lovejoy777sa.sion.InAppBillingCoffee"
+            android:label="@string/app_name"
+            android:icon="@drawable/ic_launcher"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.DONATION" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.sion.lovejoy777sa.sion.Thanks"
+            android:label="@string/app_name"
+            android:icon="@drawable/ic_launcher"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.sion.lovejoy777sa.sion.THANKS" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+    </application>
+
+</manifest>
