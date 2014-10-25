@@ -29,7 +29,7 @@ import util.SimpleUtils;
  */
 public class InitD extends Activity {
 
-    static final String TAG = "777";
+    static final String TAG = "sion";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +41,7 @@ public class InitD extends Activity {
         Button deletebutton = (Button) findViewById(R.id.deletebutton);
         deletebutton.setVisibility(View.GONE);
         Button rebootbutton = (Button) findViewById(R.id.rebootbutton);
+        Button deletechooserbutton = (Button) findViewById(R.id.deletechooserbutton);
 
 
         Intent extras = getIntent();
@@ -60,6 +61,8 @@ public class InitD extends Activity {
             }
         });
 
+
+        // INSTALL BUTTON
         if (sourcezippath != null)
             idinstallbutton.setVisibility(View.VISIBLE);
         idinstallbutton.setOnClickListener(new View.OnClickListener() {
@@ -78,6 +81,14 @@ public class InitD extends Activity {
             public void onClick(View v) {
 
                 command4(); // reboot device
+            }
+        });
+
+        // DELETE FILE CHOOSER BUTTON
+        deletechooserbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent("com.sion.lovejoy777sa.sion.DELETEFILECHOOSER"));
             }
         });
 
@@ -231,10 +242,13 @@ public class InitD extends Activity {
         if (sourcezippath.length() >= 1)
             if (deletecb.isChecked()) {
                 RootTools.deleteFileOrDirectory(sourcezippath, true);
+                Toast.makeText(InitD.this, "Delete Successful", Toast.LENGTH_LONG).show();
+
             } else {
                 Toast.makeText(InitD.this, "Delete Failed", Toast.LENGTH_LONG).show();
                 //finish();
             }
+        finish();
     }
 
 
