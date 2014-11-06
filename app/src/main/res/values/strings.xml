@@ -5,7 +5,7 @@
     <string name="action_about">About</string>
     <string name="action_changelog">Change Log</string>
     <string name="action_settings">Settings</string>
-    <string name="version">version 0.01</string>
+    <string name="version">version 0.02-beta5</string>
     <string name="developed">By Steve Lovejoy</string>
     <string name="splashTitle">Sion</string>
     <string name="switchTitle">Sion</string>
@@ -17,15 +17,30 @@
     <string name="aboutTV2">Developed by Steve Lovejoy </string>
     <string name="aboutTV3">Sion is an app for installing files/scripts onto an android device,\nIts main aim is to be a user friendly way of doing this with the minimal chance of messing up your system etc. </string>
     <string name="instructionsTV1">Select what type of file you are installing from the Home screen.</string>
-    <string name="instructionsTV2">Init.d</string>
-    <string name="instructionsTV3">If you select init.d You will find yourself in the File Chooser, Navigate to your chosen file and click it, it doesnt matter if its a .zip as this will unzip it for you. The file path will be displayed Please check it, Then press the install button. WAIT for the "install finished" text and make sure your happy with your choice before pressing the Reboot button as this will make the script take effect.</string>
-    <string name="instructionsTV4">Rom.zip</string>
-    <string name="instructionsTV5">If you select init.d You will find yourself in the File Chooser, Navigate to your chosen file and click it,</string>
+    <string name="instructionsTV2">Init.d Installer</string>
+    <string name="instructionsTV3">If you select init.d Installer Click on the Choose Your Script Button, Navigate to your chosen file.zip and click it. The file path will be displayed Please check it, Then press the Install Chosen Init.d button. WAIT for the "install finished" text and make sure your happy with your choice before pressing the Reboot Your Device button as this will make the script take effect.</string>
+    <string name="instructionsTV4">Flashable.Zip Installer</string>
+    <string name="instructionsTV5">If you select Flashable.zip installer and click the Choose a Flashable.zip File Navigate to your chosen file.zip and click it. The file path will be displayed Please check it, Then press the Install Chosen .zip button, It takes about 20 seconds to copy the rom to the correct location and install the script so please be patient.</string>
     <string name="ratereview">Please rate and review this app on the \nGoogle Play Store </string>
     <string name="changelog">
-    \nVersion 0.03
-    \n
+    \nVersion 0.01
     \nInitial release
+    \n
+    \nVersion 0.02-beta1
+    \nAdded .Zip Installer
+    \n
+    \nVersion 0.02-beta2
+    \nBug Fix
+    \n
+    \nVersion 0.02-beta3
+    \nNew UI
+    \n
+    \nVersion 0.02-beta4
+    \nNew UI again old one looked cluttered
+    \n
+    \nVersion 0.02-beta5
+    \nNew UI again old one not enough info
+    \nThanks Koop1955
     </string>
 
     <string name="cantopenfile">Cannot open this file</string>
@@ -38,6 +53,8 @@
     <string name="advancedsettings">Advanced</string>
     <string name="enable_root">Enable root access</string>
     <string name="xdaforum">XDA forum</string>
+    <string name="content">Image</string>
+
 
     <string name="action_donate">Donations</string>
     <string name="buy_string1">Buy me a coffee £1.20</string>
@@ -48,5 +65,11 @@
     <string name="clickme_string3">Click Me</string>
     <string name="buy_string4">Buy me 4 coffee\'s £4.00</string>
     <string name="clickme_string4">Click Me</string>
+    <string name="loadingdescript1">Sion is copying your chosen file</string>
+    <string name="loadingdescript2">and installing a</string>
+    <string name="loadingdescript3">recovery update script</string>
+    <string name="loadingdescript4">Your device will reboot recovery</string>
+    <string name="loadingdescript5">install your .zip file</string>
+    <string name="loadingdescript6">then reboot your System.</string>
 
 </resources>

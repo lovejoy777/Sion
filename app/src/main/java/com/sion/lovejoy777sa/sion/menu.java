@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 /**
  * Created by lovejoy on 25/05/14.
@@ -18,7 +19,7 @@ public class menu extends Activity {
         setContentView(R.layout.activity_main);
 
         Button buttoninitd = (Button) findViewById(R.id.buttoninitd);
-        Button buttonroms = (Button) findViewById(R.id.buttonroms);
+        Button buttonflasher = (Button) findViewById(R.id.buttonflasher);
 
         buttoninitd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -29,11 +30,11 @@ public class menu extends Activity {
         });
 
 
-        buttonroms.setOnClickListener(new View.OnClickListener() {
+        buttonflasher.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent("com.sion.lovejoy777sa.sion.ROMS"));
+                startActivity(new Intent("com.sion.lovejoy777sa.sion.FLASHER"));
             }
         });
 

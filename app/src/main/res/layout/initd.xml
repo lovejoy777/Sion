@@ -1,130 +1,195 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    >
+
+
+
+<RelativeLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent">
+
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/initdtitlechoose"
+        android:layout_margin="10dp"
+        android:text="Install Init.d"
+        android:id="@+id/textView9"
+        android:layout_centerHorizontal="true"
         android:textColor="@color/main"
-        android:id="@+id/textView"
-        android:layout_gravity="center_horizontal"
         android:textSize="@dimen/title_text_size" />
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView3"
+        android:layout_below="@+id/textView9"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/ic_script" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Choose a path with the file chooser"
-        android:textSize="20sp"
+        android:layout_margin="20dp"
+        android:hint="Your path will appear here"
         android:id="@+id/tvidpath"
-        android:layout_gravity="center_horizontal"
-        android:textAlignment="center"/>
+        android:textSize="25sp"
+        android:layout_below="@+id/imageView3"
+        android:layout_centerHorizontal="true" />
 
-
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView10"
+        android:src="@drawable/ic_file"
+        android:layout_alignTop="@+id/buttoninitdfilechooser"
+        android:layout_marginLeft="20dp" />
 
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="File Chooser"
+        android:text="Choose Your Init.d Script.zip\nthat you predownloaded"
         android:id="@+id/buttoninitdfilechooser"
-        android:layout_gravity="center_horizontal"
-        android:textSize="30sp" />
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/imageView10"
+        android:layout_below="@+id/tvidpath"
+        android:layout_margin="10dp"
+        android:background="@color/main"
+        android:textColor="@color/white" />
 
-
-
-    <TextView
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Then press the install button"
-        android:textSize="20sp"
-        android:id="@+id/tv1"
-        android:layout_gravity="center_horizontal"
-        android:textAlignment="center"/>
-
+        android:id="@+id/imageView11"
+        android:src="@drawable/ic_redflash"
+        android:layout_alignTop="@+id/idinstallbutton"
+        android:layout_marginLeft="20dp" />
 
 
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="30sp"
-        android:text="Install"
+        android:text="Install Your Chosen Script.zip"
         android:id="@+id/idinstallbutton"
-        android:layout_gravity="center_horizontal" />
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/imageView10"
+        android:layout_below="@+id/buttoninitdfilechooser"
+        android:layout_margin="10dp"
+        android:background="@color/main"
+        android:textColor="@color/white" />
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView12"
+        android:src="@drawable/ic_reload"
+        android:layout_alignTop="@+id/rebootbutton"
+        android:layout_marginLeft="20dp" />
+
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reboot Your Device\nfor your init.d to take effect"
+        android:id="@+id/rebootbutton"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/imageView10"
+        android:layout_below="@+id/idinstallbutton"
+        android:layout_margin="10dp"
+        android:background="@color/main"
+        android:textColor="@color/white" />
+
+
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Finally"
-        android:textSize="20sp"
-        android:id="@+id/tv2"
-        android:layout_gravity="center_horizontal"
-        android:textAlignment="center"/>
+        android:text="Delete Init.d"
+        android:id="@+id/textView21"
+        android:textColor="@color/main"
+        android:textSize="@dimen/title_text_size"
+        android:layout_below="@+id/textView31"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView13"
+        android:src="@drawable/ic_file"
+        android:layout_alignTop="@+id/deletechooserbutton"
+        android:layout_marginLeft="20dp" />
 
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="30sp"
-        android:text="Reboot"
-        android:id="@+id/rebootbutton"
-        android:layout_gravity="center_horizontal"
-        />
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="30sp"
-        android:text="Delete Chooser"
+        android:text="Choose an Init.d Script To Delete"
         android:id="@+id/deletechooserbutton"
-        android:layout_gravity="center_horizontal" />
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/imageView10"
+        android:layout_below="@+id/textView21"
+        android:layout_margin="10dp"
+        android:background="@color/main"
+        android:textColor="@color/white" />
 
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Confirm before deleting"
+        android:text="please confirm deletion"
         android:id="@+id/deletecb"
-        android:layout_gravity="center_horizontal" />
+        android:layout_below="@+id/deletechooserbutton"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView14"
+        android:src="@drawable/ic_trash"
+        android:layout_alignTop="@+id/deletebutton"
+        android:layout_marginLeft="20dp" />
+
 
     <Button
-        style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#ff0000"
-        android:textSize="30sp"
-        android:text="Delete"
+        android:text="Delete your chosen Init.d\nplease tick the checkbox"
         android:id="@+id/deletebutton"
-        android:layout_gravity="center_horizontal" />
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/imageView10"
+        android:layout_below="@+id/deletecb"
+        android:layout_margin="10dp"
+        android:background="@color/main"
+        android:textColor="@color/white" />
+
+
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="use the delete button with caution"
-        android:id="@+id/textView7"
-        android:layout_gravity="center_horizontal" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="It uses root permissions"
-        android:id="@+id/textView8"
-        android:layout_gravity="center_horizontal" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Init.d scripts can be found at"
-        android:id="@+id/textView9"
-        android:layout_gravity="center_horizontal" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="/system/etc/init.d/"
-        android:id="@+id/textView10"
-        android:layout_gravity="center_horizontal" />
+        android:text="Warning this may brick your device"
+        android:id="@+id/textView31"
+        android:textColor="@color/red"
+        android:layout_below="@+id/rebootbutton"
+        android:layout_centerHorizontal="true" />
 
 
-</LinearLayout>
+
+</RelativeLayout>
+
+
+</ScrollView>

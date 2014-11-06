@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Install .zip files"
+            android:id="@+id/textView9"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/main"
+            android:textSize="@dimen/title_text_size" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView1"
+            android:layout_below="@+id/textView9"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/ic_yellowflash" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:hint="Your path will appear here"
+            android:id="@+id/tvidpath"
+            android:textSize="25sp"
+            android:layout_below="@+id/imageView1"
+            android:layout_centerHorizontal="true" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView6"
+            android:src="@drawable/ic_blueflash"
+            android:layout_alignTop="@+id/buttonfilechooser"
+            android:layout_marginLeft="20dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choose a flashable.zip file\nthat you have predownloaded"
+            android:id="@+id/buttonfilechooser"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_toRightOf="@+id/imageView6"
+            android:layout_below="@+id/tvidpath"
+            android:layout_margin="10dp"
+            android:background="@color/main"
+            android:textColor="@color/white" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView7"
+            android:src="@drawable/ic_redflash"
+            android:layout_alignTop="@+id/idinstallbutton"
+            android:layout_marginLeft="20dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Install your chosen .zip file"
+            android:id="@+id/idinstallbutton"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_toRightOf="@+id/imageView7"
+            android:layout_below="@+id/buttonfilechooser"
+            android:layout_margin="10dp"
+            android:background="@color/main"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Warning this may brick your device"
+            android:id="@+id/textView31"
+            android:textColor="@color/red"
+            android:layout_below="@+id/idinstallbutton"
+            android:layout_centerHorizontal="true" />
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="Root file remover"
+            android:id="@+id/textView21"
+            android:textColor="@color/main"
+            android:textSize="@dimen/title_text_size"
+            android:layout_below="@+id/textView31"
+            android:layout_centerHorizontal="true" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView8"
+            android:src="@drawable/ic_file"
+            android:layout_alignTop="@+id/deletechooserbutton"
+            android:layout_marginLeft="20dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choose a File To Delete"
+            android:id="@+id/deletechooserbutton"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_toRightOf="@+id/imageView8"
+            android:layout_below="@+id/textView21"
+            android:layout_margin="10dp"
+            android:background="@color/main"
+            android:textColor="@color/white" />
+
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="please confirm deletion"
+            android:id="@+id/deleteflashercb"
+            android:layout_below="@+id/deletechooserbutton"
+            android:layout_centerHorizontal="true" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView9"
+            android:src="@drawable/ic_trash"
+            android:layout_alignTop="@+id/deletebutton"
+            android:layout_marginLeft="20dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delete your chosen file\nplease tick the checkbox"
+            android:id="@+id/deletebutton"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_toRightOf="@+id/imageView9"
+            android:layout_below="@+id/deleteflashercb"
+            android:layout_margin="10dp"
+            android:background="@color/main"
+            android:textColor="@color/white" />
+
+
+
+
+    </RelativeLayout>
+
+
+</ScrollView>

@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.stericson.RootTools.RootTools;
@@ -36,10 +37,10 @@ public class InitD extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.initd);
         Button buttoninitdfilechooser = (Button) findViewById(R.id.buttoninitdfilechooser);
-        Button idinstallbutton = (Button) findViewById(R.id.idinstallbutton);
-        idinstallbutton.setVisibility(View.GONE);
+        final Button idinstallbutton = (Button) findViewById(R.id.idinstallbutton);
+        idinstallbutton.setTag(1);
+        idinstallbutton.setText("Install Chosen Init.d");
         Button deletebutton = (Button) findViewById(R.id.deletebutton);
-        deletebutton.setVisibility(View.GONE);
         Button rebootbutton = (Button) findViewById(R.id.rebootbutton);
         Button deletechooserbutton = (Button) findViewById(R.id.deletechooserbutton);
 
@@ -64,12 +65,24 @@ public class InitD extends Activity {
 
         // INSTALL BUTTON
         if (sourcezippath != null)
-            idinstallbutton.setVisibility(View.VISIBLE);
+            //idinstallbutton.setVisibility(View.VISIBLE);
         idinstallbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                final int status = (Integer) v.getTag();
+                if (status == 1) {
 
-                command1();
+                    command1();
+                    idinstallbutton.setText("Installing Please Wait");
+                    v.setTag(0);
+
+                } else {
+                    idinstallbutton.setText("Install Chosen Init.d");
+                    v.setTag(1);
+
+                }
+
+
             }
 
         });
@@ -88,6 +101,8 @@ public class InitD extends Activity {
         deletechooserbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
                 startActivity(new Intent("com.sion.lovejoy777sa.sion.DELETEFILECHOOSER"));
             }
         });
@@ -95,17 +110,22 @@ public class InitD extends Activity {
         // DELETE FILE CHOOSER BUTTON BUTTON
 
         if (sourcezippath != null)
-            deletebutton.setVisibility(View.VISIBLE);
-        deletebutton.setOnClickListener(new View.OnClickListener() {
+          //  deletebutton.setVisibility(View.VISIBLE);
 
-            @Override
-            public void onClick(View v) {
+        {
+            deletebutton.setOnClickListener(new View.OnClickListener() {
 
-                command3(); // reboot device
+                @Override
+                public void onClick(View v) {
+
+                    command3(); // reboot device
+
+                }
+
+            });
 
 
-            }
-        });
+        }
     }
 
     // COMMAND 1 make temp dirs copy & move & unzip & mount rw
@@ -155,7 +175,7 @@ public class InitD extends Activity {
                         //from here all commands are executed with su permissions
                         stdin.writeBytes("-c\n");
                         stdin.flush();
-                        stdin.writeBytes("chmod 0755 " + permdir + "\n");
+                        stdin.writeBytes("chmod 0777 " + permdir + "\n");
                         stdin.flush();
                         stdin.writeBytes("cp -fr " + sdinstallnewname + " " + permdir + "\n");
                         stdin.flush();
@@ -177,7 +197,7 @@ public class InitD extends Activity {
                         //from here all commands are executed with su permissions
                         stdin.writeBytes("-c\n");
                         stdin.flush();
-                        stdin.writeBytes("chmod 0755 " + systeminstallnewname + "\n");
+                        stdin.writeBytes("chmod 0777 " + systeminstallnewname + "\n");
                         stdin.flush();
                         stdin.close();
                         proc.waitFor();
@@ -194,17 +214,19 @@ public class InitD extends Activity {
                         finish();
                     }
 
-                    command2();
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
-
+            command2();
         }
         else {
             Toast.makeText(InitD.this, "Choose a file", Toast.LENGTH_LONG).show();
             finish();
         }
+
+
     }
 
     // COMMAND 2 change file perms and copy to destination folder
@@ -233,7 +255,6 @@ public class InitD extends Activity {
 
     // COMMAND 3 DELETE CHOSEN FILE
     public void command3() {
-
         CheckBox deletecb = (CheckBox) findViewById(R.id.deletecb);
 
         Intent extras = getIntent();
@@ -245,7 +266,7 @@ public class InitD extends Activity {
                 Toast.makeText(InitD.this, "Delete Successful", Toast.LENGTH_LONG).show();
 
             } else {
-                Toast.makeText(InitD.this, "Delete Failed", Toast.LENGTH_LONG).show();
+                Toast.makeText(InitD.this, "Confirm with checkbox", Toast.LENGTH_LONG).show();
                 //finish();
             }
         finish();

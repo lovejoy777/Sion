@@ -1,0 +1,8 @@
+#!/system/bin/sh
+#
+#written by steve lovejoy aka lovejoy777
+#
+#
+echo 'reboot-recovery ' > /cache/recovery/command
+echo '--update_package=/storage/emulated/legacy/Sion/rom/romupdate.zip' >> /cache/recovery/command
+reboot recovery
