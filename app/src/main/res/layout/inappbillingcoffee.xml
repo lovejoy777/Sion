@@ -40,7 +40,7 @@
         android:gravity="center_horizontal"
         android:orientation="horizontal"
         android:layout_below="@+id/linearLayout1"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="40dp"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -58,7 +58,8 @@
 
             <Button
                 android:layout_width="220dp"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
+                android:layout_margin="10dp"
                 android:text="@string/buy_string1"
                 android:id="@+id/donBtn1"
                 android:onClick="buyClick1"></Button>
@@ -68,7 +69,8 @@
 
         <Button
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
             android:text="@string/clickme_string1"
             android:id="@+id/clickButton1"
             android:onClick="buttonClicked1"></Button>
@@ -98,7 +100,8 @@
 
             <Button
                 android:layout_width="220dp"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
+                android:layout_margin="10dp"
                 android:text="@string/buy_string2"
                 android:id="@+id/donBtn2"
                 android:onClick="buyClick2"></Button>
@@ -108,7 +111,8 @@
 
         <Button
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
             android:text="@string/clickme_string2"
             android:id="@+id/clickButton2"
             android:onClick="buttonClicked2"></Button>
@@ -139,7 +143,8 @@
 
             <Button
                 android:layout_width="220dp"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
+                android:layout_margin="10dp"
                 android:text="@string/buy_string3"
                 android:id="@+id/donBtn3"
                 android:onClick="buyClick3"></Button>
@@ -149,7 +154,8 @@
 
         <Button
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
             android:text="@string/clickme_string3"
             android:id="@+id/clickButton3"
             android:onClick="buttonClicked3"></Button>
@@ -180,7 +186,8 @@
 
             <Button
                 android:layout_width="220dp"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
+                android:layout_margin="10dp"
                 android:text="@string/buy_string4"
                 android:id="@+id/donBtn4"
                 android:onClick="buyClick4"></Button>
@@ -190,7 +197,8 @@
 
         <Button
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
             android:text="@string/clickme_string4"
             android:id="@+id/clickButton4"
             android:onClick="buttonClicked4"></Button>

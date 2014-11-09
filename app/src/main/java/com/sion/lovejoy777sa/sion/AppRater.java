@@ -39,7 +39,7 @@ public class AppRater {
             editor.putLong("date_firstlaunch", date_firstLaunch);
         }
 
-        // Wait at least n days before opening
+        // com.sion.lovejoy777sa.sion.Wait at least n days before opening
         if (launch_count >= LAUNCHES_UNTIL_PROMPT) {
             if (System.currentTimeMillis() >= date_firstLaunch +
                     (DAYS_UNTIL_PROMPT * 24 * 60 * 60 * 1000)) {

@@ -3,6 +3,29 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="android:Theme.Holo.Light">
         <!-- Customize your theme here. -->
+
     </style>
+
+    <style name="DarkTheme" parent="android:Theme.Holo">
+        <!-- Customize your theme here. -->
+        <item name="android:buttonStyle">@style/ButtonDark</item>
+    </style>
+
+    <style name="LightTheme" parent="android:Theme.Holo.Light">
+        <item name="android:buttonStyle">@style/ButtonLight</item>
+    </style>
+
+    <style name="ButtonDark" parent="@android:style/Widget.Button">
+        <item name="android:textColor">#ffffff</item><!-- only way to change this is to change the src image -->
+        <item name="android:background">#1D1D1D</item>
+
+    </style>
+
+    <style name="ButtonLight" parent="@android:style/Widget.Button">
+        <item name="android:textColor">#ffffff</item><!-- only way to change this is to change the src image -->
+        <item name="android:background">@color/main</item>
+
+    </style>
+
 
 </resources>

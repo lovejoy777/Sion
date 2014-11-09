@@ -2,8 +2,10 @@ package com.sion.lovejoy777sa.sion;
 
 import android.app.ListActivity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Environment;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
@@ -24,6 +26,7 @@ public class DeleteFlasherChooser extends ListActivity {
     private FileArrayAdapter adapter;
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        LoadPrefs();
         super.onCreate(savedInstanceState);
 
 
@@ -91,6 +94,21 @@ public class DeleteFlasherChooser extends ListActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+    }
+
+    private void LoadPrefs() {
+        //cb = (CheckBox) findViewById(R.id.checkBoxDark);
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean cbValue = sp.getBoolean("CHECKBOX", false);
+        if(cbValue){
+            setTheme(R.style.DarkTheme);
+
+        }else{
+            setTheme(R.style.LightTheme);
+
+        }
+
+
     }
 
 }

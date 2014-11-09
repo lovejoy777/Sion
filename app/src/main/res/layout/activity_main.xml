@@ -28,7 +28,8 @@
             android:src="@drawable/ic_home"
             android:layout_margin="20dp"
             android:layout_below="@+id/textView9"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@string/imageReference" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -38,21 +39,22 @@
             android:layout_alignTop="@+id/buttoninitd"
             android:layout_marginLeft="20dp"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:contentDescription="@string/imageReference" />
 
         <Button
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:text="Init.d Installer\nscripts are device specific"
             android:id="@+id/buttoninitd"
-            android:background="@color/main"
-            android:textColor="@color/white"
-            android:layout_margin="10dp"
             android:layout_toEndOf="@+id/imageView"
             android:layout_below="@+id/imageView5"
             android:layout_toRightOf="@+id/imageView"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignParentEnd="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -62,17 +64,16 @@
             android:layout_marginLeft="20dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:src="@drawable/ic_yellowflash" />
+            android:src="@drawable/ic_yellowflash"
+            android:contentDescription="@string/imageReference" />
 
         <Button
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:text="Flashable.zip Installer\nroms, gapps, mods etc"
             android:id="@+id/buttonflasher"
             android:layout_centerVertical="true"
             android:layout_below="@+id/buttoninitd"
-            android:background="@color/main"
-            android:textColor="@color/white"
             android:layout_margin="10dp"
             android:layout_toRightOf="@+id/imageView"
             android:layout_toEndOf="@+id/imageView"
@@ -87,18 +88,18 @@
             android:src="@drawable/ic_file"
             android:layout_alignTop="@+id/buildpropbutton"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:contentDescription="@string/imageReference" />
 
 
         <Button
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:text="Build.Prop Installer\nComing Soon"
             android:id="@+id/buildpropbutton"
             android:layout_centerVertical="true"
             android:layout_below="@+id/buttonflasher"
-            android:background="@color/main"
-            android:textColor="@color/white"
+
             android:layout_toRightOf="@+id/imageView6"
             android:layout_toEndOf="@+id/imageView6"
             android:layout_marginLeft="10dp"

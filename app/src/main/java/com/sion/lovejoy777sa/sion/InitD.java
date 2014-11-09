@@ -2,7 +2,9 @@ package com.sion.lovejoy777sa.sion;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -31,9 +33,11 @@ import util.SimpleUtils;
 public class InitD extends Activity {
 
     static final String TAG = "sion";
+    CheckBox cb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        LoadPrefs();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.initd);
         Button buttoninitdfilechooser = (Button) findViewById(R.id.buttoninitdfilechooser);
@@ -69,22 +73,29 @@ public class InitD extends Activity {
         idinstallbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final int status = (Integer) v.getTag();
-                if (status == 1) {
 
-                    command1();
-                    idinstallbutton.setText("Installing Please Wait");
-                    v.setTag(0);
+                    //command1();
+                Intent extras = getIntent();
 
-                } else {
-                    idinstallbutton.setText("Install Chosen Init.d");
-                    v.setTag(1);
+                if (extras != null) {
+                    String sourcezipname = extras.getStringExtra("key3");
+                    String iszip = ".zip";
 
+                    if (sourcezipname != null && !sourcezipname.isEmpty()) {
+                        if (sourcezipname.endsWith(iszip)) {
+
+                            oninstallClick();
+
+                        }else {
+                            Toast.makeText(InitD.this, "Invalid File", Toast.LENGTH_LONG).show();
+                            finish();
+                        }
+
+                    }else {
+                        Toast.makeText(InitD.this, "Please Choose a File", Toast.LENGTH_LONG).show();
+                    }
                 }
-
-
             }
-
         });
 
         // REBOOT BUTTON
@@ -110,7 +121,6 @@ public class InitD extends Activity {
         // DELETE FILE CHOOSER BUTTON BUTTON
 
         if (sourcezippath != null)
-          //  deletebutton.setVisibility(View.VISIBLE);
 
         {
             deletebutton.setOnClickListener(new View.OnClickListener() {
@@ -118,139 +128,30 @@ public class InitD extends Activity {
                 @Override
                 public void onClick(View v) {
 
-                    command3(); // reboot device
+                    command3(); // delete chosen file
 
                 }
 
             });
-
-
         }
     }
 
-    // COMMAND 1 make temp dirs copy & move & unzip & mount rw
-    public void command1() {
 
+
+
+    private void oninstallClick() {
         Intent extras = getIntent();
+        String sourcezipname = extras.getStringExtra("key3");
+        String sourcezippath = extras.getStringExtra("key1");
+        //String iszip = ".zip";
 
-        if (extras != null) {
-            String sourcezipname = extras.getStringExtra("key3");
-            String sourcezippath = extras.getStringExtra("key1");
-            String sdinstalldirpath = "/storage/emulated/legacy/";
-            String sdinstalldirname = "sdsion";
-            String systeminstalldirpath = "/system/";
-            String systeminstalldirname = "syssion";
+        Intent iIntent;
+        iIntent = new Intent(this, WaitInitD.class);
+        iIntent.putExtra("key1", sourcezippath);
+        iIntent.putExtra("key3", sourcezipname);
+        startActivity(iIntent);
 
-            Basename newbasename = new Basename(sourcezipname, '/', '.');
-            String newname = "" + newbasename.basename();
-            String systeminstall = "/system/syssion";
-            String sdinstall = "/storage/emulated/legacy/sdsion";
-            String sdmovedsdinstall = sdinstall + "/" + sourcezipname;
-            String systeminstallnewname = "" + systeminstall + "/" + newname;
-            String sdinstallnewname = "" + sdinstall + "/" + newname;
-            String sdinstallmvtopath = "" + sdinstalldirpath + sdinstalldirname;
-            String permdir = "" + systeminstalldirpath + systeminstalldirname + "/";
-            String permfile = "" + systeminstalldirpath + systeminstalldirname + "/" + newname + "/";
-
-            boolean success = false;
-
-            if (sourcezipname.length() >= 1) {
-                success = SimpleUtils.createDir(
-                        sdinstalldirpath,
-                        sdinstalldirname);
-                SimpleUtils.createDir(
-                        systeminstalldirpath,
-                        systeminstalldirname);
-
-
-                SimpleUtils.copyToDirectory(sourcezippath, sdinstallmvtopath);
-                try {
-                    unzip(sdmovedsdinstall, sdinstall);
-
-                    RootTools.remount(permdir, "RW");
-                    Process proc1 = null;
-                    try {
-                        proc1 = Runtime.getRuntime().exec("su");
-                        DataOutputStream stdin = new DataOutputStream(proc1.getOutputStream());
-                        //from here all commands are executed with su permissions
-                        stdin.writeBytes("-c\n");
-                        stdin.flush();
-                        stdin.writeBytes("chmod 0777 " + permdir + "\n");
-                        stdin.flush();
-                        stdin.writeBytes("cp -fr " + sdinstallnewname + " " + permdir + "\n");
-                        stdin.flush();
-                        stdin.close();
-                        proc1.waitFor();
-
-                    } catch (InterruptedException e) {
-                        Log.e(TAG, "permission wait", e);
-                    } catch (IOException e) {
-                        Log.e(TAG, "permission runtime", e);
-                    }
-
-                    RootTools.remount(permfile, "RW");
-
-                    Process proc = null;
-                    try {
-                        proc = Runtime.getRuntime().exec("su");
-                        DataOutputStream stdin = new DataOutputStream(proc.getOutputStream());
-                        //from here all commands are executed with su permissions
-                        stdin.writeBytes("-c\n");
-                        stdin.flush();
-                        stdin.writeBytes("chmod 0777 " + systeminstallnewname + "\n");
-                        stdin.flush();
-                        stdin.close();
-                        proc.waitFor();
-
-                    } catch (InterruptedException e) {
-                        Log.e(TAG, "permission wait", e);
-                    } catch (IOException e) {
-                        Log.e(TAG, "permission runtime", e);
-
-                        if (success)
-                            Toast.makeText(InitD.this, "Unzipping", Toast.LENGTH_LONG).show();
-
-                    } finally {
-                        finish();
-                    }
-
-
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-            command2();
-        }
-        else {
-            Toast.makeText(InitD.this, "Choose a file", Toast.LENGTH_LONG).show();
-            finish();
-        }
-
-
-    }
-
-    // COMMAND 2 change file perms and copy to destination folder
-    public void command2() {
-
-        Intent extras = getIntent();
-
-            String sourcezipname = extras.getStringExtra("key3");
-
-            Basename newbasename = new Basename(sourcezipname, '/', '.');
-            String newname = "" + newbasename.basename();
-            String systeminstall = "/system/syssion";
-            String systeminstallnewname = "" + systeminstall + "/" + newname;
-            String destdir = "/system/etc/init.d/";
-            String delsysdir = "/system/syssion";
-            String delsddir = "/storage/emulated/legacy/sdsion";
-
-        RootTools.copyFile(systeminstallnewname, destdir, true, true);
-        RootTools.deleteFileOrDirectory(delsysdir, true);
-        RootTools.deleteFileOrDirectory(delsddir, true);
-
-        Toast.makeText(InitD.this, "Install Finished", Toast.LENGTH_LONG).show();
         finish();
-
     }
 
     // COMMAND 3 DELETE CHOSEN FILE
@@ -271,9 +172,6 @@ public class InitD extends Activity {
             }
         finish();
     }
-
-
-
 
     // COMMAND 4, REBOOT DEVICE
 
@@ -299,72 +197,17 @@ public class InitD extends Activity {
         }
     }
 
-    /**
-     * Unzip a zip file.  Will overwrite existing files.
-     *
-     * @param zipFile Full path of the zip file you'd like to unzip.
-     * @param location Full path of the directory you'd like to unzip to (will be created if it doesn't exist).
-     * @throws java.io.IOException
-     */
-    public void unzip(String zipFile, String location) throws IOException {
+    private void LoadPrefs() {
+        //cb = (CheckBox) findViewById(R.id.checkBoxDark);
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean cbValue = sp.getBoolean("CHECKBOX", false);
+        if(cbValue){
+            setTheme(R.style.DarkTheme);
 
-            int size;
-            byte[] buffer = new byte[1024];
+        }else{
+            setTheme(R.style.LightTheme);
 
-            try {
-                if ( !location.endsWith("/") ) {
-                    location += "/";
-                }
-                File f = new File(location);
-                if(!f.isDirectory()) {
-                    f.mkdirs();
-                }
-                ZipInputStream zin = new ZipInputStream(new BufferedInputStream(new FileInputStream(zipFile), 1024));
-                try {
-                    ZipEntry ze;
-                    while ((ze = zin.getNextEntry()) != null) {
-                        String path = location + ze.getName();
-                        File unzipFile = new File(path);
-
-                        if (ze.isDirectory()) {
-                            if(!unzipFile.isDirectory()) {
-                                unzipFile.mkdirs();
-                            }
-                        } else {
-                            // check for and create parent directories if they don't exist
-                            File parentDir = unzipFile.getParentFile();
-                            if ( null != parentDir ) {
-                                if ( !parentDir.isDirectory() ) {
-                                    parentDir.mkdirs();
-                                }
-                            }
-
-                            // unzip the file
-                            FileOutputStream out = new FileOutputStream(unzipFile, false);
-                            BufferedOutputStream fout = new BufferedOutputStream(out, 1024);
-                            try {
-                                while ( (size = zin.read(buffer, 0, 1024)) != -1 ) {
-                                    fout.write(buffer, 0, size);
-                                }
-
-                                zin.closeEntry();
-                            }
-                            finally {
-                                fout.flush();
-                                fout.close();
-                            }
-
-                        }
-                    }
-
-                }
-                finally {
-                    zin.close();
-                }
-            }
-            catch (Exception e) {
-                Log.e(TAG, "Unzip exception", e);
-            }
+        }
 
 
     }

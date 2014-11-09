@@ -2,7 +2,9 @@ package com.sion.lovejoy777sa.sion;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 
@@ -26,6 +28,7 @@ public class InAppBillingCoffee extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        LoadPrefs();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.inappbillingcoffee);
 
@@ -272,6 +275,21 @@ public class InAppBillingCoffee extends Activity {
         super.onDestroy();
         if (mHelper != null) mHelper.dispose();
         mHelper = null;
+    }
+
+    private void LoadPrefs() {
+        //cb = (CheckBox) findViewById(R.id.checkBoxDark);
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean cbValue = sp.getBoolean("CHECKBOX", false);
+        if(cbValue){
+            setTheme(R.style.DarkTheme);
+
+        }else{
+            setTheme(R.style.LightTheme);
+
+        }
+
+
     }
 }
 

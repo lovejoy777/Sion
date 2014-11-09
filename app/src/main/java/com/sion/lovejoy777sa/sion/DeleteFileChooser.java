@@ -2,7 +2,9 @@ package com.sion.lovejoy777sa.sion;
 
 import android.app.ListActivity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
@@ -23,6 +25,7 @@ public class DeleteFileChooser extends ListActivity {
     private FileArrayAdapter adapter;
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        LoadPrefs();
         super.onCreate(savedInstanceState);
 
         String systdest = "/system/etc/init.d/";
@@ -93,6 +96,21 @@ public class DeleteFileChooser extends ListActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+    }
+
+    private void LoadPrefs() {
+        //cb = (CheckBox) findViewById(R.id.checkBoxDark);
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean cbValue = sp.getBoolean("CHECKBOX", false);
+        if(cbValue){
+            setTheme(R.style.DarkTheme);
+
+        }else{
+            setTheme(R.style.LightTheme);
+
+        }
+
+
     }
 
 }

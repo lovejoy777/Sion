@@ -5,12 +5,14 @@
     <string name="action_about">About</string>
     <string name="action_changelog">Change Log</string>
     <string name="action_settings">Settings</string>
-    <string name="version">version 0.02-beta5</string>
+    <string name="version">version 0.02</string>
     <string name="developed">By Steve Lovejoy</string>
     <string name="splashTitle">Sion</string>
     <string name="switchTitle">Sion</string>
     <string name="initdtitlechoose">Choose a File</string>
     <string name="romtitlechoose">Choose Files</string>
+    <string name="imageReference">this is an image</string>
+
 
     <string name="action_instructions">Instructions</string>
 
@@ -41,6 +43,11 @@
     \nVersion 0.02-beta5
     \nNew UI again old one not enough info
     \nThanks Koop1955
+    \n
+    \nVersion 0.02
+    \nOut of beta at last
+    \nNew Themeable Ui
+    \ndark and light theme option in settings
     </string>
 
     <string name="cantopenfile">Cannot open this file</string>
@@ -68,8 +75,15 @@
     <string name="loadingdescript1">Sion is copying your chosen file</string>
     <string name="loadingdescript2">and installing a</string>
     <string name="loadingdescript3">recovery update script</string>
-    <string name="loadingdescript4">Your device will reboot recovery</string>
+    <string name="loadingdescript4">Your device will reboot to recovery</string>
     <string name="loadingdescript5">install your .zip file</string>
-    <string name="loadingdescript6">then reboot your System.</string>
+    <string name="loadingdescript6">then reboot back to your System.</string>
+
+
+    <string name="loadingdescript7">init.d script.</string>
+    <string name="loadingdescript8">You will need to reboot</string>
+    <string name="loadingdescript9">for the script to take effect.</string>
+
+
 
 </resources>
