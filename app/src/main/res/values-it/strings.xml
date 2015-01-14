@@ -1,0 +1,121 @@
+<resources>
+
+    <!-- STRINGS FOR SION -->
+
+    <!-- Splash Screen -->
+    <string name="splashTitle">Sion</string>
+    <string name="app_name">Sion</string>
+    <string name="version">versione 1.06</string>
+    <string name="developed">By Steve Lovejoy</string>
+    <string name="installer">Installer</string>
+
+    <!-- Home Screen -->
+    <string name="homeTitle">Home</string>
+    <string name="homebutton1txt">Installer init.d \nGli scripts sono specifici per dispositivo</string>
+    <string name="homebutton2txt">Installer .zip flashabili\nroms, gapps, mods etc</string>
+    <string name="homebutton3txt">Installer build.prop \nProssimamente</string>
+
+    <!-- Init.d installer -->
+
+    <string name="initdTitle">Installa init.d</string>
+    <string name="yourpathhint">Il percorso dello script init.d selezionato apparirà qui</string>
+    <string name="initbutton1txt">Scegli lo script init.d\nche hai scaricato preventivamente</string>
+    <string name="initbutton2txt">Installa lo script init.d</string>
+    <string name="initbutton3txt">Riavvia il dispositivo\nper applicare lo script init.d</string>
+    <string name="initbutton4txt">Scegli uno script init.d da eliminare</string>
+    <string name="initbutton5txt">Elimina lo script init.d scelto\n(clicca prima sulla casella di controllo)</string>
+    <string name="deleteinitTitle">Elimina init.d</string>
+    <string name="initconfirmdel">conferma l\'eliminazione</string>
+    <string name="brickwarning">Attenzione, questo potrebbe rendere inutilizzabile il dispositivo</string>
+
+    <!-- Flasher installer -->
+    <string name="flasherTitle">Installa file .zip</string>
+    <string name="flashbutton1txt">Scegli un .zip flashabile\nche hai scaricato preventivamente</string>
+    <string name="flashbutton2txt">Installa il file .zip</string>
+    <string name="flashbutton3txt">Scegli un .zip da eliminare</string>
+    <string name="flashbutton4txt">Elimina il .zip scelto\n(clicca prima sulla casella di controllo)</string>
+    <string name="deleteflashTitle">Cancellazione file</string>
+    <string name="flashconfirmdel">conferma l\'eliminazione</string>
+
+    <!-- Loading Screen -->
+    <string name="bepatient">Attendi un momento</string>
+    <string name="loading">Caricamento In corso((((</string>
+    <string name="loadingdescript1">Sion sta copiando il file selezionato</string>
+    <string name="loadingdescript2">e installando uno</string>
+    <string name="loadingdescript3">script di aggiornamento per la recovery</string>
+    <string name="loadingdescript4">Il dispositivo sarà riavviato in recovery</string>
+    <string name="loadingdescript5">verrà installato il tuo .zip</string>
+    <string name="loadingdescript6">e il dispositivo sarà riavviato normalmente</string>
+    <string name="loadingdescript7">script init.d.</string>
+    <string name="loadingdescript8">Avrai bisogno di riavviare</string>
+    <string name="loadingdescript9">per applicare lo script.</string>
+
+    <!-- Dropdown Settings Menu -->
+    <string name="action_instructions">Istruzioni</string>
+    <string name="action_settings">Impostazioni</string>
+    <string name="action_about">Info</string>
+    <string name="action_changelog">Changelog</string>
+    <string name="action_donate">Donazioni</string>
+
+    <!-- INSTRUCTIONS -->
+    <string name="instructionsTV1">Seleziona il tipo di file che stai installando dalla schermata Home.</string>
+    <string name="instructionsTV2">Installer init.d</string>
+    <string name="instructionsTV3">Se selezioni l\'installer init.d, clicca su \'Scegli lo script init.d\', naviga verso il file e cliccaci sopra. Il suo percorso verrà mostrato, controllalo prima di continuare e quindi clicca sul pulsante \'Installa lo script init.d\'. Attendi il messaggio di avvenuta installazione e prima di riavviare controlla nuovamente che il file scelto sia quello giusto.</string>
+    <string name="instructionsTV4">Installer .zip flashabili</string>
+    <string name="instructionsTV5">Se selezioni l\'installer .zip flashabili, clicca su \'Scegli un .zip flashabile\', naviga verso il file e cliccaci sopra. Il suo percorso verrà mostrato, controllalo prima di continuare e quindi clicca sul pulsante \'Installa il file .zip\'. Serviranno circa 20 secondi per effettuare l\'operazione.</string>
+
+    <!-- Settings Screen -->
+    <string name="settingsTitle">Impostazioni</string>
+    <string name="savecb">casella di controllo\, quindi premi sull\'icona Salva e riavvia l\'app</string>
+    <string name="ticktoapply">Tappa per applicare il tema Dark</string>
+    <string name="ifyouwantdark">Se vuoi passare all\'interfaccia scura di Sion tappa sulla</string>
+    <string name="xdaText">Visit the Sion xda thread.</string>
+
+    <!-- About -->
+    <string name="aboutTV2">Sviluppata da Steve Lovejoy </string>
+    <string name="aboutTV3">Sion è un\'app per l\'installazione di files e scripts in un dispositivo Android,\nil suo obiettivo è quello di semplificare le operazioni dell\'utente in modo da ridurre al minimo le possibilità di corrompere il sistema.</string>
+    <string name="aboutversion">Versione #</string>
+
+    <!-- Changelog -->
+    <string name="changelog">
+    \nversione 1.06
+    \n
+    \nPlease visit the Sion XDA thread.
+    </string>
+
+    <!-- Donations Screen -->
+    <string name="buy_string1">Donami un caffè £1.20</string>
+    <string name="clickme_string1">Clicca QUI</string>
+    <string name="buy_string2">Donami 2 caffè £2.40</string>
+    <string name="clickme_string2">Clicca QUI</string>
+    <string name="buy_string3">Donami 3 caffè £3.60</string>
+    <string name="clickme_string3">Clicca QUI</string>
+    <string name="buy_string4">Donami 4 caffè £4.80</string>
+    <string name="clickme_string4">Clicca QUI</string>
+    <string name="donations">Donazioni</string>
+    <string name="forthedev">per lo sviluppatore</string>
+    <string name="afterpurchase">dopo avermi conprato il caffè, premi sul pulsante Clicca QUI</string>
+    <string name="thankyou">Grazie!</string>
+
+    <!-- theme -->
+    <string name="theme">Tema</string>
+    <string name="light">Chiaro</string>
+    <string name="dark">Scuro</string>
+
+    <!-- Misc -->
+    <string name="content">Immagine</string>
+    <string name="switchTitle">Sion</string>
+    <string name="initdtitlechoose">Scegli un file</string>
+    <string name="romtitlechoose">Scegli files</string>
+    <string name="imageReference">questa è un\'immagine</string>
+
+    <!-- App rater styles -->
+    <string name="appirator_app_title">Sion</string>
+    <string name="appirator_market_url">market://details?id=%s</string>
+    <string name="rate_title">Valuta Sion</string>
+    <string name="rate_message">Se trovi utile Sion, perchè non spendere qualche momento per dare una valutazione? Non richiederà più di un minuto. Grazie per il supporto!</string>
+    <string name="rate">Valuta %s</string>
+    <string name="rate_later">Ricordamelo più tardi</string>
+    <string name="rate_cancel">No, grazie</string>
+
+</resources>

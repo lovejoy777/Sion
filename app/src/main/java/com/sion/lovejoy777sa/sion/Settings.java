@@ -2,7 +2,9 @@ package com.sion.lovejoy777sa.sion;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.preference.PreferenceManager;
@@ -37,7 +39,20 @@ public class Settings  extends Activity implements View.OnClickListener {
         b = (ImageButton) findViewById(R.id.saveButton);
         b.setOnClickListener(this);
 
+        ImageButton xdaButton = (ImageButton) findViewById(R.id.xdaButton);
         LoadPrefs();
+
+        xdaButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://forum.xda-developers.com/android/apps-games/sion-flashable-zips-init-d-installer-t2992612/post57934168#post57934168")));
+
+
+            }
+        });
+
+
 
     }
 
@@ -45,13 +60,12 @@ public class Settings  extends Activity implements View.OnClickListener {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
         boolean cbValue = sp.getBoolean("CHECKBOX", false);
         if(cbValue){
-            cb.setChecked(true);
-
-
             }else{
             cb.setChecked(false);
 
             }
+
+
 
 
     }

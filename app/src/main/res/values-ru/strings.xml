@@ -1,0 +1,124 @@
+<resources>
+
+    <!-- STRINGS FOR SION -->
+
+    <!-- Splash Screen -->
+    <string name="splashTitle">Sion</string>
+    <string name="app_name">Sion</string>
+    <string name="version">версия 1.06</string>
+    <string name="developed">By Steve Lovejoy</string>
+    <string name="installer">Установщик</string>
+
+    <!-- Home Screen -->
+    <string name="homeTitle">Домашний экран</string>
+    <string name="homebutton1txt">Установка скриптов Init.d\nскрипты специфичны для каждого устройства</string>
+    <string name="homebutton2txt">Установка Flashable.zip\nroms, gapps, mods и т.п.</string>
+    <string name="homebutton3txt">Build.Prop установщик\nСкоро будет</string>
+
+    <!-- Init.d installer -->
+
+    <string name="initdTitle">Установка Init.d</string>
+    <string name="yourpathhint">Путь к файлу появится здесь</string>
+    <string name="initbutton1txt">Выберите файл Script.zip со скриптом Init.d,\nкоторый вы предварительно загрузили</string>
+    <string name="initbutton2txt">Установить выбранный Script.zip</string>
+    <string name="initbutton3txt">Перезагрузите устройство,\nчтобы изменения init.d вступили в силу</string>
+    <string name="initbutton4txt">Выберите скрипт Init.d для удаления</string>
+    <string name="initbutton5txt">Удалить выбранный скрипт Init.d\nне забудьте поставить галочку</string>
+    <string name="deleteinitTitle">Удаление Init.d</string>
+    <string name="initconfirmdel">подтвердите удаление, пожалуйста</string>
+    <string name="brickwarning">Внимание! Это действие может вывести ваше устройство из строя</string>
+
+    <!-- Flasher installer -->
+    <string name="flasherTitle">Установка .zip файлов</string>
+    <string name="flashbutton1txt">Выберите файл flashable.zip,\nкоторый вы предварительно загрузили</string>
+    <string name="flashbutton2txt">Установить выбранный .zip файл</string>
+    <string name="flashbutton3txt">Выберите файл для удаления</string>
+    <string name="flashbutton4txt">Удалить выбранный .zip файл\nне забудьте поставить галочку</string>
+    <string name="deleteflashTitle">Удаление файла Root</string>
+    <string name="flashconfirmdel">подтвердите удаление, пожалуйста</string>
+
+    <!-- Loading Screen -->
+    <string name="bepatient">Немного терпения, пожалуйста</string>
+    <string name="loading">Загрузка</string>
+    <string name="loadingdescript1">Sion копирует выбранный вами файл</string>
+    <string name="loadingdescript2">и устанавливает</string>
+    <string name="loadingdescript3">скрипт для обновления</string>
+    <string name="loadingdescript4">Ваше устройство будет перезагружено в режим восстановления</string>
+    <string name="loadingdescript5">установится .zip файл</string>
+    <string name="loadingdescript6">после этого система будет перезагружена.</string>
+    <string name="loadingdescript7">скрипт init.d.</string>
+    <string name="loadingdescript8">Вам потребуется перезагрузка,</string>
+    <string name="loadingdescript9">чтобы скрипт вступил в силу.</string>
+
+    <!-- Dropdown Settings Menu -->
+    <string name="action_instructions">Инструкции</string>
+    <string name="action_settings">Настройки</string>
+    <string name="action_about">О программе</string>
+    <string name="action_changelog">Журнал изменений</string>
+    <string name="action_donate">Пожертвования</string>
+
+    <!-- INSTRUCTIONS -->
+    <string name="instructionsTV1">На домашнем экране выберите тип файла, который хотите установить.</string>
+    <string name="instructionsTV2">Установка скриптов Init.d</string>
+    <string name="instructionsTV3">Если вы выбрали \'Установка скриптов init.d\', кликните кнопку выбора файла со скриптом, перейдите к выбранному вами файлу file.zip и кликните его. Путь к файлу отобразится на экране - проверьте его, пожалуйста. Затем нажмите кнопку \'Установить выбранный Script.zip\'. ДОЖДИТЕСЬ появления текста о том, что установка завершена и убедитесь, что вы всё сделали правильно, прежде чем нажимать кнопку \'Перезагрузите устройство\', т.к. это действие приведёт к тому, что скрипт вступит в силу.</string>
+    <string name="instructionsTV4">Установка Flashable.Zip</string>
+    <string name="instructionsTV5">Если вы выбрали \'Установка Flashable.zip\' и нажали \'Выберите файл flashable.zip\', перейдите к выбранному вами файлу file.zip и кликните его. Путь к файлу отобразится на экране - проверьте его, пожалуйста. Затем нажмите кнопку \'Установить выбранный .zip файл\'. Это действие займёт до 20 секунд, чтобы скопировать rom файл в правильное место и установить скрипт, пожалуйста, будьте терпеливы.</string>
+
+    <!-- Settings Screen -->
+    <string name="settingsTitle">Настройки</string>
+    <string name="savecb">поставьте галочку, затем нажмите иконку сохранения и перезагрузите приложение</string>
+    <string name="ticktoapply">Отметьте, чтобы включить тёмную тему Sion-а</string>
+    <string name="ifyouwantdark">Если вы хотите, чтобы у Sion-а был тёмный интерфейс, тогда</string>
+    <string name="xdaText">Visit the Sion xda thread.</string>
+
+    <!-- About -->
+    <string name="aboutTV2">Разработчик Steve Lovejoy </string>
+    <string name="aboutTV3">Sion - это приложение для установки файлов/скриптов на android устройство,\nглавная цель - помочь вам выполнить эти действия с минимальным шансом повредить вашу систему и т.д. </string>
+    <string name="aboutversion">Версия #</string>
+
+    <!-- Changelog -->
+    <string name="changelog">
+    \nВерсия 1.06
+    \nИсходная версия
+    \nPlease visit the Sion XDA thread.
+    </string>
+
+    <!-- Donations Screen -->
+    <string name="buy_string1">Купить мне кофе £1.20</string>
+    <string name="clickme_string1">Кликни</string>
+    <string name="buy_string2">Купить мне 2 кофе £2.40</string>
+    <string name="clickme_string2">Кликни</string>
+    <string name="buy_string3">Купить мне 3 кофе £3.60</string>
+    <string name="clickme_string3">Кликни</string>
+    <string name="buy_string4">Купить мне 4 кофе £4.80</string>
+    <string name="clickme_string4">Кликни</string>
+    <string name="donations">Пожертвования</string>
+    <string name="forthedev">разработчику</string>
+    <string name="afterpurchase">после покупки мне кофе нажмите кнопку \'Кликни\'</string>
+    <string name="thankyou">Спасибо</string>
+
+    <!-- theme -->
+    <string name="theme">Тема</string>
+    <string name="light">Светлая</string>
+    <string name="dark">Тёмная</string>
+
+    <!-- App Rater -->
+    <string name="ratereview">Пожалуйста оцените приложение и оставьте свой отзыв в \nGoogle Play Store </string>
+
+    <!-- Misc -->
+    <string name="content">Картинка</string>
+    <string name="switchTitle">Sion</string>
+    <string name="initdtitlechoose">Выберите файл</string>
+    <string name="romtitlechoose">Выберите файлы</string>
+    <string name="imageReference">это картинка</string>
+
+    <!-- app rater -->
+    <string name="appirator_app_title">Sion</string>
+    <string name="appirator_market_url">market://details?id=%s</string>
+    <string name="rate_title">Rate Sion</string>
+    <string name="rate_message">If you enjoy using Sion, would you mind taking a moment to rate it? Thanks for your support!</string>
+    <string name="rate">Yes, Rate Sion</string>
+    <string name="rate_later">Remind me later</string>
+    <string name="rate_cancel">No, Thanks</string>
+
+</resources>

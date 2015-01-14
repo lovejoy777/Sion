@@ -1,0 +1,124 @@
+<resources>
+
+    <!-- STRINGS FOR SION -->
+
+    <!-- Splash Screen -->
+    <string name="splashTitle">Sion</string>
+    <string name="app_name">Sion</string>
+    <string name="version">версія 1.06</string>
+    <string name="developed">By Steve Lovejoy</string>
+    <string name="installer">Установник</string>
+
+    <!-- Home Screen -->
+    <string name="homeTitle">Домашній екран</string>
+    <string name="homebutton1txt">Установник Init.d\nскрипти специфічні до пристрою</string>
+    <string name="homebutton2txt">Установник Flashable.zip\nroms, gapps, mods і т.ін.</string>
+    <string name="homebutton3txt">Установник Build.Prop\nНезабаром</string>
+
+    <!-- Init.d installer -->
+
+    <string name="initdTitle">Установлення Init.d</string>
+    <string name="yourpathhint">Тут буде відображений шлях до файлу</string>
+    <string name="initbutton1txt">Оберіть скрипт Init.d Script.zip,\nякий ви попередньо завантажили</string>
+    <string name="initbutton2txt">Установити обраний Script.zip</string>
+    <string name="initbutton3txt">Перезавантажте ваш пристрій,\nщоб init.d набув чинності</string>
+    <string name="initbutton4txt">Оберіть скрипт Init.d для видалення</string>
+    <string name="initbutton5txt">Видалити обраний Init.d\nбудь ласка, поставте галочку</string>
+    <string name="deleteinitTitle">Видалити Init.d</string>
+    <string name="initconfirmdel">будь ласка, підтвердить видалення</string>
+    <string name="brickwarning">Увага! Це може зашкодити вашому пристрою</string>
+
+    <!-- Flasher installer -->
+    <string name="flasherTitle">Установлення .zip файлів</string>
+    <string name="flashbutton1txt">Оберіть flashable.zip файл,\nякий ви попередньо завантажили</string>
+    <string name="flashbutton2txt">Установити обраний .zip файл</string>
+    <string name="flashbutton3txt">Оберіть файл для видалення</string>
+    <string name="flashbutton4txt">Видалити обраний .zip\nбудь ласка, поставте галочку</string>
+    <string name="deleteflashTitle">Видалення файлу Root</string>
+    <string name="flashconfirmdel">будь ласка, підтвердить видалення</string>
+
+    <!-- Loading Screen -->
+    <string name="bepatient">Зачекайте, будь ласка</string>
+    <string name="loading">Завантаження</string>
+    <string name="loadingdescript1">Sion копіює обраний файл</string>
+    <string name="loadingdescript2">та встановлює</string>
+    <string name="loadingdescript3">скрипт для відновлення</string>
+    <string name="loadingdescript4">Ваш пристрій буде перезавантажений в режимі відновлення</string>
+    <string name="loadingdescript5">встановиться файл .zip</string>
+    <string name="loadingdescript6">потім буде перезавантажений у звичайному режимі.</string>
+    <string name="loadingdescript7">Скрипт init.d.</string>
+    <string name="loadingdescript8">Вам буде потрібне перезавантаження</string>
+    <string name="loadingdescript9">щоб скрипт набув чинності.</string>
+
+    <!-- Dropdown Settings Menu -->
+    <string name="action_instructions">Інтсрукція</string>
+    <string name="action_settings">Налаштування</string>
+    <string name="action_about">Про програму</string>
+    <string name="action_changelog">Журнал змін</string>
+    <string name="action_donate">Пожертвування</string>
+
+    <!-- INSTRUCTIONS -->
+    <string name="instructionsTV1">Оберіть файл якого типу ви встановлюєте на Домашньому екрані.</string>
+    <string name="instructionsTV2">Установник Init.d</string>
+    <string name="instructionsTV4">Установник Flashable.Zip</string>
+    <string name="instructionsTV3">Якщо ви обрали \'Установлення init.d\', натисніть кнопку \'Оберіть скрипт Init.d Script.zip\', спрямуйте до обраного file.zip та натисніть на нього. Буде відображено шлях до файлу - перевірте його, будь ласка. Потім натисніть кнопку \'Установити обраний Script.zip\'. Зачекайте доки не з’явиться текст  "install finished" та, якщо ви впевнені в своєму виборі, натисніть кнопку \'Перезавантажити пристрій\', щоб зміни в init.d набули чинності.</string>
+    <string name="instructionsTV5">Якщо ви обрали \'Усатновлення Flashable.zip\', натисніть кнопку \'Оберіть Flashable.zip файл\' та спрямуйте до завантаженого файлу file.zip й натисніть на нього. Буде відображено шлях до файлу - перевірте його, будь ласка. Потім натисніть кнопку \'Установити обраний .zip файл\'. Потрібно приблизно 20 секунд, щоб скопіювати rom в потрібне місце та встановити скрипт для відновлення, будьте терплячими.</string>
+
+    <!-- Settings Screen -->
+    <string name="settingsTitle">Налаштування</string>
+    <string name="savecb">галочку, а потім натисніть значок збереження та перестартуйте програму</string>
+    <string name="ticktoapply">Поставте галочку, щоб застосувати темну тему Sion-а</string>
+    <string name="ifyouwantdark">Якщо ви хочете, щоб Sion мав темний вигляд, тобі поставте</string>
+    <string name="xdaText">Visit the Sion xda thread.</string>
+
+    <!-- About -->
+    <string name="aboutTV2">Розробник Steve Lovejoy </string>
+    <string name="aboutTV3">Sion - це програма для встановлення файлів/скриптів на андроід пристрій\nз мінімальним шансом зіпсувати вашу систему і т.ін. </string>
+    <string name="aboutversion">Версія #</string>
+
+    <!-- Changelog -->
+    <string name="changelog">
+    \nVersion 1.06
+    \n
+    \nPlease visit the Sion XDA thread.
+    \n
+    </string>
+
+    <!-- Donations Screen -->
+    <string name="buy_string1">Купити мені каву £1.20</string>
+    <string name="clickme_string1">Натисніть</string>
+    <string name="buy_string2">Купити мені 2 кави £2.40</string>
+    <string name="clickme_string2">Натисніть</string>
+    <string name="buy_string3">Купити мені  3 кави £3.60</string>
+    <string name="clickme_string3">Натисніть</string>
+    <string name="buy_string4">Купити мені 4 кави £4.80</string>
+    <string name="clickme_string4">Натисніть</string>
+    <string name="donations">Пожертвування</string>
+    <string name="forthedev">для розробника</string>
+    <string name="afterpurchase">після покупки мені кави натисніть кнопку \'Натисніть\'</string>
+    <string name="thankyou">Дякую</string>
+
+    <!-- theme -->
+    <string name="theme">Тема</string>
+    <string name="light">Світла</string>
+    <string name="dark">Темна</string>
+
+
+
+    <!-- Misc -->
+    <string name="content">Зображення</string>
+    <string name="switchTitle">Sion</string>
+    <string name="initdtitlechoose">Оберіть файл</string>
+    <string name="romtitlechoose">Оберіть файли</string>
+    <string name="imageReference">це зображення</string>
+
+    <!-- app rater -->
+    <string name="appirator_app_title">Sion</string>
+    <string name="appirator_market_url">market://details?id=%s</string>
+    <string name="rate_title">Rate Sion</string>
+    <string name="rate_message">If you enjoy using Sion, would you mind taking a moment to rate it? Thanks for your support!</string>
+    <string name="rate">Yes, Rate Sion</string>
+    <string name="rate_later">Remind me later</string>
+    <string name="rate_cancel">No, Thanks</string>
+
+</resources>

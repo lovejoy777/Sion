@@ -30,6 +30,7 @@ public class FileChooser extends ListActivity {
     public void onCreate(Bundle savedInstanceState) {
         LoadPrefs();
         super.onCreate(savedInstanceState);
+
         currentDir = new File(Environment.getExternalStorageDirectory().getAbsolutePath());
         fill(currentDir);
     }
@@ -39,6 +40,7 @@ public class FileChooser extends ListActivity {
         this.setTitle("Current Dir: " + f.getName());
         List<Option> dir = new ArrayList<Option>();
         List<Option> fls = new ArrayList<Option>();
+
         try {
             if (dirs != null) {
                 for (File ff : dirs) {
@@ -49,18 +51,18 @@ public class FileChooser extends ListActivity {
                     }
                 }
             }
+
         } catch (Exception e) {
             Log.e(TAG, "getting File f", e);
         }
         Collections.sort(dir);
         Collections.sort(fls);
         dir.addAll(fls);
-        if (!f.getName().equalsIgnoreCase("sdcard"))
+        if (!f.getName().equalsIgnoreCase("0"))
             dir.add(0, new Option("..", "Parent Directory", f.getParent()));
         adapter = new FileArrayAdapter(FileChooser.this, R.layout.file_view, dir);
         this.setListAdapter(adapter);
     }
-
 
     Stack<File> dirStack = new Stack<File>();
     @Override
@@ -99,14 +101,14 @@ public class FileChooser extends ListActivity {
 
     private void onFileClick(Option o)
     {
-        String sourcezippath = "" + o.getPath();
+        String SZP = "" + o.getPath();
         String systdest = "/system/etc/init.d/";
-        String sourcezipname = "" + o.getName();
+        String SZN = "" + o.getName();
 
         Intent iIntent = new Intent(this, InitD.class);
-        iIntent.putExtra("key1", sourcezippath);
+        iIntent.putExtra("key1", SZP);
         iIntent.putExtra("key2", systdest);
-        iIntent.putExtra("key3", sourcezipname);
+        iIntent.putExtra("key3", SZN);
         startActivity(iIntent);
 
         finish();
@@ -118,7 +120,6 @@ public class FileChooser extends ListActivity {
     }
 
     private void LoadPrefs() {
-        //cb = (CheckBox) findViewById(R.id.checkBoxDark);
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
         boolean cbValue = sp.getBoolean("CHECKBOX", false);
         if(cbValue){
@@ -128,8 +129,5 @@ public class FileChooser extends ListActivity {
             setTheme(R.style.LightTheme);
 
         }
-
-
     }
-
 }

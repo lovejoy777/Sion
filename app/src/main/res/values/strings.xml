@@ -1,93 +1,122 @@
 <resources>
 
+    <!-- STRINGS FOR SION -->
+
+    <!-- Splash Screen -->
+    <string name="splashTitle">Sion</string>
     <string name="app_name">Sion</string>
-    <string name="aboutversion">Version #</string>
+    <string name="version">version 1.06</string>
+    <string name="developed">By Steve Lovejoy</string>
+    <string name="installer">Installer</string>
+
+    <!-- Home Screen -->
+    <string name="homeTitle">Home</string>
+    <string name="homebutton1txt">Init.d Installer\nscripts are device specific</string>
+    <string name="homebutton2txt">Flashable.zip Installer\nroms, gapps, mods etc</string>
+    <string name="homebutton3txt">Build.Prop Installer\nComing Soon</string>
+
+    <!-- Init.d installer -->
+
+    <string name="initdTitle">Install Init.d</string>
+    <string name="yourpathhint">Your path will appear here</string>
+    <string name="initbutton1txt">Choose Your Init.d Script.zip\nthat you predownloaded</string>
+    <string name="initbutton2txt">Install Your Chosen Script.zip</string>
+    <string name="initbutton3txt">Reboot Your Device\nfor your init.d to take effect</string>
+    <string name="initbutton4txt">Choose an Init.d Script To Delete</string>
+    <string name="initbutton5txt">Delete your chosen Init.d\nplease tick the checkbox</string>
+    <string name="deleteinitTitle">Delete Init.d</string>
+    <string name="initconfirmdel">please confirm deletion</string>
+    <string name="brickwarning">Warning this may brick your device</string>
+
+    <!-- Flasher installer -->
+    <string name="flasherTitle">Install .zip files</string>
+    <string name="flashbutton1txt">Choose a flashable.zip file\nthat you have predownloaded</string>
+    <string name="flashbutton2txt">Install your chosen .zip file</string>
+    <string name="flashbutton3txt">Choose a File To Delete</string>
+    <string name="flashbutton4txt">Delete your chosen .zip\nplease tick the checkbox</string>
+    <string name="deleteflashTitle">Root file remover</string>
+    <string name="flashconfirmdel">please confirm deletion</string>
+
+    <!-- Loading Screen -->
+    <string name="bepatient">Please be patient</string>
+    <string name="loading">Loading</string>
+    <string name="loadingdescript1">Sion is copying your chosen file</string>
+    <string name="loadingdescript2">and installing an</string>
+    <string name="loadingdescript3">recovery update script</string>
+    <string name="loadingdescript4">Your device will reboot to recovery</string>
+    <string name="loadingdescript5">install your .zip file</string>
+    <string name="loadingdescript6">then reboot back to your System.</string>
+    <string name="loadingdescript7">init.d script.</string>
+    <string name="loadingdescript8">You will need to reboot</string>
+    <string name="loadingdescript9">for the script to take effect.</string>
+
+    <!-- Dropdown Settings Menu -->
+    <string name="action_instructions">Instructions</string>
+    <string name="action_settings">Settings</string>
     <string name="action_about">About</string>
     <string name="action_changelog">Change Log</string>
-    <string name="action_settings">Settings</string>
-    <string name="version">version 0.03</string>
-    <string name="developed">By Steve Lovejoy</string>
-    <string name="splashTitle">Sion</string>
-    <string name="switchTitle">Sion</string>
-    <string name="initdtitlechoose">Choose a File</string>
-    <string name="romtitlechoose">Choose Files</string>
-    <string name="imageReference">this is an image</string>
+    <string name="action_donate">Donations</string>
 
-
-    <string name="action_instructions">Instructions</string>
-
-    <string name="aboutTV2">Developed by Steve Lovejoy </string>
-    <string name="aboutTV3">Sion is an app for installing files/scripts onto an android device,\nIts main aim is to be a user friendly way of doing this with the minimal chance of messing up your system etc. </string>
+    <!-- INSTRUCTIONS -->
     <string name="instructionsTV1">Select what type of file you are installing from the Home screen.</string>
     <string name="instructionsTV2">Init.d Installer</string>
     <string name="instructionsTV3">If you select init.d Installer Click on the Choose Your Script Button, Navigate to your chosen file.zip and click it. The file path will be displayed Please check it, Then press the Install Chosen Init.d button. WAIT for the "install finished" text and make sure your happy with your choice before pressing the Reboot Your Device button as this will make the script take effect.</string>
     <string name="instructionsTV4">Flashable.Zip Installer</string>
     <string name="instructionsTV5">If you select Flashable.zip installer and click the Choose a Flashable.zip File Navigate to your chosen file.zip and click it. The file path will be displayed Please check it, Then press the Install Chosen .zip button, It takes about 20 seconds to copy the rom to the correct location and install the script so please be patient.</string>
-    <string name="ratereview">Please rate and review this app on the \nGoogle Play Store </string>
+
+    <!-- Settings Screen -->
+    <string name="settingsTitle">Settings</string>
+    <string name="savecb">checkbox then press the save icon and restart the app</string>
+    <string name="ticktoapply">Tick to apply Sions Dark Theme</string>
+    <string name="ifyouwantdark">If you want Sion to have a dark ui then tick the</string>
+    <string name="xdaText">Visit the Sion xda thread.</string>
+
+    <!-- About -->
+    <string name="aboutTV2">Developed by Steve Lovejoy </string>
+    <string name="aboutTV3">Sion is an app for installing files/scripts onto an android device,\nIts main aim is to be a user friendly way of doing this with the minimal chance of messing up your system etc. </string>
+    <string name="aboutversion">Version #</string>
+
+    <!-- Changelog -->
     <string name="changelog">
-    \nVersion 0.01
-    \nInitial release
+    \nVersion 1.06
     \n
-    \nVersion 0.02-beta1
-    \nAdded .Zip Installer
-    \n
-    \nVersion 0.02-beta2
-    \nBug Fix
-    \n
-    \nVersion 0.02-beta3
-    \nNew UI
-    \n
-    \nVersion 0.02-beta4
-    \nNew UI again old one looked cluttered
-    \n
-    \nVersion 0.02-beta5
-    \nNew UI again old one not enough info
-    \nThanks Koop1955
-    \n
-    \nVersion 0.02
-    \nOut of beta at last
-    \nNew Themeable Ui
-    \ndark and light theme option in settings
-    \n
-    \nVersion 0.03
-    \n
-    \n
+    \nPlease visit the Sion XDA thread.
+
     </string>
 
-    <string name="cantopenfile">Cannot open this file</string>
-    <string name="copiedtoclipboard">Copied to clipboard.</string>
-    <string name="copy">Copy</string>
-    <string name="copyfail">Copy failed!</string>
-    <string name="copying">Copying</string>
-    <string name="copysuccsess">Successfully copied.</string>
-    <string name="uisettings">View settings</string>
-    <string name="advancedsettings">Advanced</string>
-    <string name="enable_root">Enable root access</string>
-    <string name="xdaforum">XDA forum</string>
-    <string name="content">Image</string>
-
-
-    <string name="action_donate">Donations</string>
+    <!-- Donations Screen -->
     <string name="buy_string1">Buy me a coffee £1.20</string>
     <string name="clickme_string1">Click Me</string>
-    <string name="buy_string2">Buy me 2 coffee\'s £2.00</string>
+    <string name="buy_string2">Buy me 2 coffee\'s £2.40</string>
     <string name="clickme_string2">Click Me</string>
-    <string name="buy_string3">Buy me 3 coffee\'s £3.00</string>
+    <string name="buy_string3">Buy me 3 coffee\'s £3.60</string>
     <string name="clickme_string3">Click Me</string>
-    <string name="buy_string4">Buy me 4 coffee\'s £4.00</string>
+    <string name="buy_string4">Buy me 4 coffee\'s £4.80</string>
     <string name="clickme_string4">Click Me</string>
-    <string name="loadingdescript1">Sion is copying your chosen file</string>
-    <string name="loadingdescript2">and installing a</string>
-    <string name="loadingdescript3">recovery update script</string>
-    <string name="loadingdescript4">Your device will reboot to recovery</string>
-    <string name="loadingdescript5">install your .zip file</string>
-    <string name="loadingdescript6">then reboot back to your System.</string>
+    <string name="donations">Donations</string>
+    <string name="forthedev">for the developer</string>
+    <string name="afterpurchase">after buying me a coffee press the click me button</string>
+    <string name="thankyou">Thank You</string>
 
+    <!-- theme -->
+    <string name="theme">Theme</string>
+    <string name="light">Light</string>
+    <string name="dark">Dark</string>
 
-    <string name="loadingdescript7">init.d script.</string>
-    <string name="loadingdescript8">You will need to reboot</string>
-    <string name="loadingdescript9">for the script to take effect.</string>
+    <!-- Misc -->
+    <string name="content">Image</string>
+    <string name="switchTitle">Sion</string>
+    <string name="initdtitlechoose">Choose a File</string>
+    <string name="romtitlechoose">Choose Files</string>
+    <string name="imageReference">this is an image</string>
 
-
+    <!-- App Rater -->
+    <string name="appirator_app_title">Sion</string>
+    <string name="appirator_market_url">market://details?id=%s</string>
+    <string name="rate_title">Rate Sion</string>
+    <string name="rate_message">If you enjoy using Sion, would you mind taking a moment to rate it? Thanks for your support!</string>
+    <string name="rate">Yes, Rate Sion</string>
+    <string name="rate_later">Remind me later</string>
+    <string name="rate_cancel">No, Thanks</string>
 
 </resources>

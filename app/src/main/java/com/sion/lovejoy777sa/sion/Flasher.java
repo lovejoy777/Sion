@@ -12,6 +12,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.stericson.RootTools.RootTools;
+import com.stericson.RootTools.exceptions.RootDeniedException;
+import com.stericson.RootTools.execution.CommandCapture;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.concurrent.TimeoutException;
+
+import util.SimpleUtils;
 
 /**
  * Created by lovejoy on 01/10/14.
@@ -27,19 +35,19 @@ public class Flasher extends Activity {
         setContentView(R.layout.flasher);
         Button buttonfilechooser = (Button) findViewById(R.id.buttonfilechooser);
         Button idinstallbutton = (Button) findViewById(R.id.idinstallbutton);
-        final Button deletebutton = (Button) findViewById(R.id.deletebutton);
-        final Button deletechooserbutton = (Button) findViewById(R.id.deletechooserbutton);
+        Button deletechooserbutton = (Button) findViewById(R.id.deletechooserbutton);
+        Button deletebutton = (Button) findViewById(R.id.deletebutton);
 
         final Intent extras = getIntent();
-        // gets the string of source path for text veiw
-        String sourcezippath = null;
+        // SZP gets the string of SourceZipPath for text veiw
+        String SZP = null;
         if (extras != null) {
-            sourcezippath = extras.getStringExtra("key1");
+            SZP = extras.getStringExtra("key1");
 
         }
         TextView tv = (TextView) findViewById(R.id.tvidpath);
 
-        tv.setText(sourcezippath);
+        tv.setText(SZP);
 
         // FILE CHOOSER BUTTON
         buttonfilechooser.setOnClickListener(new View.OnClickListener() {
@@ -57,12 +65,12 @@ public class Flasher extends Activity {
                 Intent extras = getIntent();
 
                 if (extras != null) {
-                    String sourcezipname = extras.getStringExtra("key3");
+                    String SZN = extras.getStringExtra("key3");
                     String iszip = ".zip";
 
-                    if (sourcezipname != null && !sourcezipname.isEmpty()) {
+                    if (SZN != null && !SZN.isEmpty()) {
 
-                    if (sourcezipname.endsWith(iszip)) {
+                    if (SZN.endsWith(iszip)) {
 
                         oninstallClick();
 
@@ -78,7 +86,6 @@ public class Flasher extends Activity {
             }
         });
 
-
         // DELETE FILE CHOOSER BUTTON
         deletechooserbutton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,7 +96,7 @@ public class Flasher extends Activity {
 
         // DELETE FILE CHOOSER BUTTON BUTTON
 
-        if (sourcezippath != null)
+        if (SZP != null)
 
         {
             deletebutton.setOnClickListener(new View.OnClickListener() {
@@ -103,22 +110,19 @@ public class Flasher extends Activity {
 
             });
         }
-
     }
 
     private void oninstallClick() {
     Intent extras = getIntent();
-    String sourcezipname = extras.getStringExtra("key3");
-    String sourcezippath = extras.getStringExtra("key1");
+    String SZN = extras.getStringExtra("key3");
+    String SZP = extras.getStringExtra("key1");
 
             Intent iIntent;
             iIntent = new Intent(this, WaitFlasher.class);
-            iIntent.putExtra("key1", sourcezippath);
-            iIntent.putExtra("key3", sourcezipname);
+            iIntent.putExtra("key1", SZP);
+            iIntent.putExtra("key3", SZN);
             startActivity(iIntent);
-
             finish();
-
     }
 
     // COMMAND 3 DELETE CHOSEN FILE
@@ -127,10 +131,10 @@ public class Flasher extends Activity {
         CheckBox deleteflashercb = (CheckBox) findViewById(R.id.deleteflashercb);
 
         Intent extras = getIntent();
-        String sourcezippath = extras.getStringExtra("key1");
-        if (sourcezippath.length() >= 1)
+        String SZP = extras.getStringExtra("key1");
+        if (SZP.length() >= 1)
             if (deleteflashercb.isChecked()) {
-                RootTools.deleteFileOrDirectory(sourcezippath, true);
+                RootTools.deleteFileOrDirectory(SZP, true);
                 Toast.makeText(Flasher.this, "Delete Successful", Toast.LENGTH_LONG).show();
             } else {
                 Toast.makeText(Flasher.this, "Delete Failed", Toast.LENGTH_LONG).show();
@@ -140,7 +144,6 @@ public class Flasher extends Activity {
     }
 
     private void LoadPrefs() {
-        //cb = (CheckBox) findViewById(R.id.checkBoxDark);
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
         boolean cbValue = sp.getBoolean("CHECKBOX", false);
         if(cbValue){
@@ -150,7 +153,5 @@ public class Flasher extends Activity {
             setTheme(R.style.LightTheme);
 
         }
-
-
     }
 }

@@ -17,10 +17,10 @@ import util.Purchase;
 public class InAppBillingCoffee extends Activity {
 
     IabHelper mHelper;
-    static final String ITEM_SKU1 = "coffee1";
-    static final String ITEM_SKU2 = "coffee2";
-    static final String ITEM_SKU3 = "coffee3";
-    static final String ITEM_SKU4 = "coffee4";
+    static final String ITEM_SKU1 = "coffee5";
+    static final String ITEM_SKU2 = "coffee6";
+    static final String ITEM_SKU3 = "coffee7";
+    static final String ITEM_SKU4 = "coffee8";
 
 
     private Button clickButton1, clickButton2, clickButton3, clickButton4;
@@ -46,16 +46,16 @@ public class InAppBillingCoffee extends Activity {
         clickButton4.setEnabled(false);
 
 
-        String base64EncodedPublicKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAi1j8DqmMsSsQ8QYZ5RJAIaZQAOj+Jj86WqNnmQrKytKfknloczQBx3gHatDGcxyiXgpojeJpg3mtsgV/Cpc0nDpR3lEBfRj8U4UyJMmodWVeWRjX91N0jF2iUY20vS8WzmDHfDdumQMTPEbTE3Gd6XL8iWhsC4dhqefJhmcAz06vuuIJplsSxwZy7iYOwFUY5DiGfoN+EZuQsoGRXSHKymgoXrTJ1aFHZQwxui79XIgXEGIYO2l61wuol9BFCbv/T6jhcsOe35GxlkYwE2+59fvWMdDj12EZhYy36q9PBZRD66zaxYQXq9j4mFtW5gaij6pUUDz7hLg5egC99t5w2QIDAQAB";
+        String base64EncodedPublicKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA7iTINiis3ZYHC6irx5gGHk0KZxQ7jPQWQ6XKMRdGGVkG/6IrCHiKBZ525fUUkTf7CNT4dPMxbuFC+HTtqu0AWTd5PnJbHU/zmtu1erJ3h1wQbQl9Vwmpa36tSaxalDmsnE7OPsrQI7HbhAzo7h9LeTn9pwtrw4ZNCT1MFCp/Sno8fMoMT45LRYjusWkppejVEyl8NBdYsYJRjniVbwfZfj0rovCSIW3FDOBpFCn9+wHs6zUu4eGsaYhE3tG78D8IuE05MdimfGZVZTlR0wjoOkzyXpupmcGCOrEplqURuaILYYC8QsRCkC2odNjtHhhRLYUI/4Tv5/40X/DrSCDv7QIDAQAB";
 
         mHelper = new IabHelper(this, base64EncodedPublicKey);
 
         mHelper.startSetup(new
-                                   IabHelper.OnIabSetupFinishedListener() {
-                                       public void onIabSetupFinished(IabResult result) {
+        IabHelper.OnIabSetupFinishedListener() {
+        public void onIabSetupFinished(IabResult result) {
 
-                                       }
-                                   });
+        }
+        });
 
 
     }
@@ -278,7 +278,6 @@ public class InAppBillingCoffee extends Activity {
     }
 
     private void LoadPrefs() {
-        //cb = (CheckBox) findViewById(R.id.checkBoxDark);
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
         boolean cbValue = sp.getBoolean("CHECKBOX", false);
         if(cbValue){

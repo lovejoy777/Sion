@@ -6,31 +6,27 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.view.View;
-import android.widget.ImageButton;
 
 /**
- * Created by lovejoy777 on 15/12/13.
+ * Created by lovejoy on 27/12/14.
  */
-public class ChangeLog extends Activity {
+public class PlaystoreSuperUser extends Activity {
+
+    //Button Btn1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         LoadPrefs();
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.changelog);
 
-        LoadPrefs();
-
-        ImageButton xdaButton = (ImageButton) findViewById(R.id.xdaButton1);
-        xdaButton.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://forum.xda-developers.com/android/apps-games/sion-flashable-zips-init-d-installer-t2992612/post57934168#post57934168")));
+        final String appPackageName = "com.noshufou.android.su"; // getPackageName() from Context or Activity object
+        try {
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
+        } catch (android.content.ActivityNotFoundException anfe) {
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + appPackageName)));
+        }
 
 
-            }
-        });
     }
 
     private void LoadPrefs() {
@@ -48,3 +44,4 @@ public class ChangeLog extends Activity {
 
     }
 }
+

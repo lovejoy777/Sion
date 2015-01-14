@@ -198,7 +198,6 @@ public class InitD extends Activity {
     }
 
     private void LoadPrefs() {
-        //cb = (CheckBox) findViewById(R.id.checkBoxDark);
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
         boolean cbValue = sp.getBoolean("CHECKBOX", false);
         if(cbValue){

@@ -8,17 +8,27 @@ import android.preference.PreferenceManager;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
+import android.widget.Toast;
+
+import com.stericson.RootTools.RootTools;
+import com.stericson.RootTools.internal.RootToolsInternalMethods;
 
 /**
  * Created by lovejoy on 25/05/14.
  */
 public class menu extends Activity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         LoadPrefs();
-        super.onCreate(savedInstanceState);
+        Appirater.appLaunched(this);
+        RootTools.debugMode = true; //ON
+        if (RootTools.isAccessGiven()) {
+            // your app has been granted root access
+
+            super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         Button buttoninitd = (Button) findViewById(R.id.buttoninitd);
@@ -41,6 +51,14 @@ public class menu extends Activity {
             }
         });
 
+    }else {
+            Toast.makeText(menu.this, "Your device doesn't seem to be rooted", Toast.LENGTH_LONG).show();
+            Intent intent0 = new Intent();
+            intent0.setClass(this, PlaystoreSuperUser.class);
+            startActivity(intent0);
+            finish();
+
+        }
     }
 
     @Override
@@ -117,5 +135,7 @@ public class menu extends Activity {
 
 
     }
+
+
 
 }

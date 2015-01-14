@@ -1,0 +1,6 @@
+#!/system/bin/sh
+
+DIR=/data/data/com.sion.lovejoy777sa.sion/otaroms
+if [ -d "$DIR" ]; then
+    rm -rf "$DIR"
+fi

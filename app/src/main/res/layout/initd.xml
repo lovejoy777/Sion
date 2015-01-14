@@ -3,7 +3,7 @@
 
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    >
+    android:orientation="vertical">
 
 
 
@@ -16,7 +16,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:text="Install Init.d"
+        android:text="@string/initdTitle"
         android:id="@+id/textView9"
         android:layout_centerHorizontal="true"
         android:textColor="@color/main"
@@ -35,7 +35,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:hint="Your path will appear here"
+        android:hint="@string/yourpathhint"
         android:id="@+id/tvidpath"
         android:textSize="25sp"
         android:layout_below="@+id/imageView3"
@@ -53,7 +53,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="60dp"
-        android:text="Choose Your Init.d Script.zip\nthat you predownloaded"
+        android:text="@string/initbutton1txt"
         android:id="@+id/buttoninitdfilechooser"
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
@@ -75,7 +75,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="60dp"
-        android:text="Install Your Chosen Script.zip"
+        android:text="@string/initbutton2txt"
         android:id="@+id/idinstallbutton"
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
@@ -100,7 +100,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="60dp"
-        android:text="Reboot Your Device\nfor your init.d to take effect"
+        android:text="@string/initbutton3txt"
         android:id="@+id/rebootbutton"
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
@@ -115,7 +115,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Delete Init.d"
+        android:text="@string/deleteinitTitle"
         android:id="@+id/textView21"
         android:textColor="@color/main"
         android:textSize="@dimen/title_text_size"
@@ -135,7 +135,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="60dp"
-        android:text="Choose an Init.d Script To Delete"
+        android:text="@string/initbutton4txt"
         android:id="@+id/deletechooserbutton"
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
@@ -148,7 +148,7 @@
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="please confirm deletion"
+        android:text="@string/initconfirmdel"
         android:id="@+id/deletecb"
         android:layout_below="@+id/deletechooserbutton"
         android:layout_centerHorizontal="true" />
@@ -166,7 +166,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="60dp"
-        android:text="Delete your chosen Init.d\nplease tick the checkbox"
+        android:text="@string/initbutton5txt"
         android:id="@+id/deletebutton"
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
@@ -181,7 +181,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Warning this may brick your device"
+        android:text="@string/brickwarning"
         android:id="@+id/textView31"
         android:textColor="@color/red"
         android:layout_below="@+id/rebootbutton"

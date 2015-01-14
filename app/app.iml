@@ -84,6 +84,7 @@
     <orderEntry type="jdk" jdkName="Android API 19 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="RootTools" level="project" />
+    <orderEntry type="library" exported="" name="1_RootTools" level="project" />
   </component>
 </module>
 

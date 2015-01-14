@@ -3,6 +3,6 @@
 #written by steve lovejoy aka lovejoy777
 #
 #
-echo 'reboot-recovery ' > /cache/recovery/command
-echo '--update_package=/storage/emulated/legacy/Sion/rom/romupdate.zip' >> /cache/recovery/command
+echo 'boot-recovery' > /cache/recovery/command
+echo '--update_package=/data/data/com.sion.lovejoy777sa.sion/otaroms/otarom.zip' >> /cache/recovery/command
 reboot recovery

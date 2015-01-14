@@ -1,20 +1,31 @@
 package com.sion.lovejoy777sa.sion;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
+
+import com.sion.lovejoy777sa.sion.commands.RootCommands;
 import com.stericson.RootTools.RootTools;
-import java.io.DataOutputStream;
+import com.stericson.RootTools.exceptions.RootDeniedException;
+import com.stericson.RootTools.execution.CommandCapture;
+
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
+import java.nio.channels.FileChannel;
+import java.util.concurrent.TimeoutException;
 
 import util.SimpleUtils;
 
@@ -25,68 +36,158 @@ public class WaitFlasher extends Activity {
     private Handler mHandler = new Handler();
     static final String TAG = "sion";
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         LoadPrefs();
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.waitflasher);
-
         Intent extras = getIntent();
 
         if (extras != null) {
-            String sourcezipname = extras.getStringExtra("key3");
+            String SZN = extras.getStringExtra("key3");
             String iszip = ".zip";
 
-            if (sourcezipname.endsWith(iszip)) {
+            if (SZN.endsWith(iszip)) {
                 mHandler.postDelayed(new Runnable() {
                     public void run() {
 
-                        command1 ();
+                        try {
+                            // STARTS COMMAND 1
+                            command1();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
 
                     }
-                }, 1000);
+                }, 2000);
             } else {
                 Toast.makeText(WaitFlasher.this, "Invalid File", Toast.LENGTH_LONG).show();
                 finish();
             }
-
         }
     }
 
-    public void command1() {
+    public void command1() throws InterruptedException {
 
         Intent extras = getIntent();
-        // gets the string of source path for text veiw
 
         if (extras != null) {
-            String sourcezipname = extras.getStringExtra("key3");
-            String sourcezippath = extras.getStringExtra("key1");
-            String sionfolderpath = "/storage/emulated/legacy/";
-            String sionfoldername = "Sion";
-            String sionromfolderpath = "/storage/emulated/legacy/Sion/";
-            String sionromfoldername = "rom";
-            String sionromcompletefilepath = "/storage/emulated/legacy/Sion/rom/" + sourcezipname;
-            String sionrommvtopath = "/storage/emulated/legacy/Sion/rom/";
-            String sionromupdatename = "romupdate.zip";
-            String sionupdaterscriptpath = "/storage/emulated/legacy/Sion/rom/romupdatescript";
-            String delsddir = "/storage/emulated/legacy/Sion";
+            String SZN = extras.getStringExtra("key3");
+            String SZP = extras.getStringExtra("key1");
+            String sionromdata = getApplicationInfo().dataDir + "/otaroms";
+            //getApplicationInfo().dataDir
+            //String sionromdata = "/data/data/com.sion.lovejoy777sa.sion/otaroms";
+            String sionromcompletefilepath = getApplicationInfo().dataDir + "/otaroms/" + SZN;
+            String sionupdaterscriptpath = getApplicationInfo().dataDir + "/otaroms/romupdatescript";
+            String sionautodeleterscriptpath = getApplicationInfo().dataDir + "/otaroms/autodeleterscript";
+            String newname = getApplicationInfo().dataDir + "/otaroms/romupdatescript.sh";
+            String copyotaout = getApplicationInfo().dataDir + "/otaroms/otarom.zip";
 
-            File dir = new File(delsddir);
-            if (dir.exists() && dir.isDirectory()) {
-                // do something here
-                RootTools.deleteFileOrDirectory(delsddir, true);
+
+            if (SZN.length() >= 1) {
+
+                File dir = new File(getApplicationInfo().dataDir + "/otaroms/otarom.zip");
+
+                // DELETES PREVIOUS FLASHABLE.ZIP
+                if (dir.exists() && dir.isDirectory()) {
+                    SimpleUtils.deleteTarget(getApplicationInfo().dataDir + "/otaroms/otarom.zip");
+                    //RootTools.deleteFileOrDirectory(sionromdata, true);
+                }
+
+                //CREATES DIR /data/data/com.sion.lovejoy777sa.sion/otaroms
+                SimpleUtils.createDir(getApplicationInfo().dataDir, "otaroms");
+                // CHANGES PERMISSION FOR /data/data/com.sion.lovejoy777sa.sion/otaroms FOLDER
+                //CommandCapture command = new CommandCapture(0, "chmod 0777 " + sionromdata);
+
+                try {
+                    CommandCapture command = new CommandCapture(0, "chmod 0777 " + sionromdata);
+                    RootTools.getShell(true).add(command);
+                    while (!command.isFinished()) {
+                        Thread.sleep(1);
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (TimeoutException e) {
+                    e.printStackTrace();
+                } catch (RootDeniedException e) {
+                    e.printStackTrace();
+                }
+
+                // COPIES AUTODELETERSCRIPT FROM RAW FOLDER
+                InputStream in = getResources().openRawResource(R.raw.autodeleterscript);
+                FileOutputStream out = null;
+                try {
+                    out = new FileOutputStream(sionautodeleterscriptpath);
+                } catch (FileNotFoundException e) {
+                    Log.e(TAG, "fileoutputstream is null", e);
+                }
+                byte[] buff = new byte[1024];
+                int read = 0;
+
+                try {
+                    try {
+                        while ((read = in.read(buff)) > 0) {
+                            if (out != null) {
+                                out.write(buff, 0, read);
+                            }
+                        }
+                    } catch (IOException e) {
+                        Log.e(TAG, "out write is null", e);
+                    }
+                } finally {
+                    try {
+                        in.close();
+                    } catch (IOException e) {
+                        Log.e(TAG, "in is null", e);
+                    }
+
+                    try {
+                        if (out != null) {
+                            out.close();
+                        }
+                    } catch (IOException e) {
+                        Log.e(TAG, "out is null", e);
+                    }
+                }
+
+                //COPIES SZP to /data/data/com.sion.lovejoy777sa.sion/otaroms
+                InputStream input = null;
+                OutputStream output = null;
+                try {
+                    input = new FileInputStream(SZP);
+                    output = new FileOutputStream(copyotaout);
+                    byte[] buf = new byte[1024];
+                    int bytesRead;
+                    while ((bytesRead = input.read(buf)) > 0) {
+                        output.write(buf, 0, bytesRead);
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } finally {
+                    try {
+                        assert input != null;
+                        input.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    try {
+                        assert output != null;
+                        output.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                // RENAMES FLASHABLE.ZIP FILE
+                SimpleUtils.renameTarget(sionromcompletefilepath, "otarom.zip");
+
             }
 
-
-            if (sourcezipname.length() >= 1) {
-                SimpleUtils.createDir(sionfolderpath, sionfoldername);                   // MKDIR /storage/emulated/legacy/Sion
-                SimpleUtils.createDir(sionromfolderpath, sionromfoldername);                       // MKDIR /storage/emulated/legacy/Sion/rom
-                SimpleUtils.copyToDirectory(sourcezippath, sionrommvtopath);               // COPY SOURCE FILE TO SDCARD FOLDER
-                SimpleUtils.renameTarget(sionromcompletefilepath, sionromupdatename);              // RENAME SOURCE FILE TO romupdate.zip
-
-            }
-
-            InputStream in = getResources().openRawResource(R.raw.romupdatescript);                // COPY SCRIPT FROM APP TO SDCARD
+            // COPIES ROMUPDATER SCRIPT FROM RAW FOLDER
+            InputStream in = getResources().openRawResource(R.raw.romupdatescript);
             FileOutputStream out = null;
             try {
                 out = new FileOutputStream(sionupdaterscriptpath);
@@ -122,92 +223,60 @@ public class WaitFlasher extends Activity {
                 }
             }
 
-        }
-        command2();                                                                                // RUN COMMAND "
-    }
+            try {
 
-    public void command2() {              // COMMAND 2
+                // RENAMES ROMUPDATER SCRIPT
+                SimpleUtils.renameTarget(sionupdaterscriptpath, "romupdatescript.sh");
+                // CHANGES PERMISSIONS FOR UPDATER SCRIPT
+                CommandCapture command1 = new CommandCapture(0, "chmod 0777 " + getApplicationInfo().dataDir + "/otaroms/romupdatescript.sh", "chmod 0755 " + getApplicationInfo().dataDir + "/otaroms/autodeleterscript");
+                RootTools.getShell(true).add(command1);
+                while (!command1.isFinished()) {
+                    Thread.sleep(2);
+                }
 
-        String rename1 = "/storage/emulated/legacy/Sion/rom/romupdatescript";
-        String romupdaterscript = "romupdatescript.sh";
-        String newnamefullpath = "/storage/emulated/legacy/Sion/rom/romupdatescript.sh";
-        String sysfolder = "/system/";
-        String sysandname = "/system/Sion/";
-        String sysandnamefile = "/system/Sion/romupdatescript.sh";
-        String sysandnamefileplus = "/system/Sion/romupdatescript.sh/";
-        String syssion = "Sion";
+                RootTools.remount("/system", "RW");
+                // COPY NEW FILE TO INIT.D FOLDER
+                RootTools.copyFile(sionautodeleterscriptpath, "/system/etc/init.d", false, true);
 
-        SimpleUtils.renameTarget(rename1, romupdaterscript);                                       // Rename Script romupdatescript.sh
-        SimpleUtils.createDir(sysfolder, syssion);
-        SimpleUtils.copyToDirectory(newnamefullpath, sysandname);                                  // COPY /storage/emulated/legacy/Sion/rom/romupdatescript.sh /system/Sion/
+                   // SimpleUtils.renameTarget(sionupdaterscriptpath, newname);
 
-        RootTools.remount(sysandname, "RW");                                                       // FOLDER PERM RW
-        RootTools.remount(sysandnamefileplus, "RW");                                               // FILE PERM RW
+                // RUNS UPDATER SCRIPT
+                    CommandCapture command2 = new CommandCapture(0, "." + getApplicationInfo().dataDir + "/otaroms/romupdatescript.sh");
+                    RootTools.getShell(true).add(command2);
+                    while (!command2.isFinished()) {
+                        Thread.sleep(2);
+                    }
+                // CLOSES ALL ROOT SHELLS INCASE FILE DOESNT FLASH
+                RootTools.closeAllShells();
 
-        Process proc1 = null;
-        try {
-
-            proc1 = Runtime.getRuntime().exec("su");
-            DataOutputStream stdin = new DataOutputStream(proc1.getOutputStream());
-            //from here all commands are executed with su permissions
-            stdin.writeBytes("-c\n");
-            stdin.flush();
-            stdin.writeBytes("chmod 0666 " + sysandname + "\n");                               //
-            stdin.flush();
-            stdin.writeBytes("chmod 0777 " + sysandnamefile + "\n");                           // PERM MAKE FILE EXECUTABLE
-            stdin.flush();
-            stdin.close();
-            proc1.waitFor();
-
-        } catch (InterruptedException e) {
-            Log.e(TAG, "permission wait", e);
-        } catch (IOException e) {
-            Log.e(TAG, "permission runtime", e);
-        }
-
-        Toast.makeText(WaitFlasher.this, "Booting Recovery", Toast.LENGTH_LONG).show();                // TOAST MESSAGE BOOTING RECOVERY
-
-        RootTools.remount(sysandnamefileplus, "RW");                                       // DELETE SYSTEM FOLDER
-
-        Process proc = null;
-        try {
-            proc = Runtime.getRuntime().exec("su");
-            DataOutputStream stdin = new DataOutputStream(proc.getOutputStream());
-            //from here all commands are executed with su permissions
-            stdin.writeBytes("-c\n");
-            stdin.flush();
-            stdin.writeBytes("." + sysandnamefile + "\n");                                    // RUN SCRIPT
-            stdin.flush();
-            stdin.close();
-            proc.waitFor();
-        } catch (InterruptedException e) {
-            Log.e(TAG, "permission wait", e);
-        } catch (IOException e) {
-            Log.e(TAG, "permission runtime", e);
-
-        } finally {
-            finish();
+            } catch (RootDeniedException e) {
+                e.printStackTrace();
+            } catch (TimeoutException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-    }
 
+
+        @Override
+        protected void onDestroy() {
+            super.onDestroy();
+        }
+
+    // LOADS THEME
     private void LoadPrefs() {
-        //cb = (CheckBox) findViewById(R.id.checkBoxDark);
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
         boolean cbValue = sp.getBoolean("CHECKBOX", false);
-        if(cbValue){
+         if( cbValue){
             setTheme(R.style.DarkTheme);
 
-        }else{
-            setTheme(R.style.LightTheme);
-
-        }
-
-
-}
-
+         }else{
+             setTheme(R.style.LightTheme);
+         }
     }
+}

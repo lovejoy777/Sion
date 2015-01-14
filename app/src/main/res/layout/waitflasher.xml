@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Loading"
+        android:text="@string/loading"
         android:id="@+id/textView12"
         android:layout_gravity="center_horizontal"
         android:textColor="@color/main"
@@ -49,7 +50,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Please be patient"
+        android:text="@string/bepatient"
         android:id="@+id/textView13"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp" />

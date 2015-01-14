@@ -30,7 +30,6 @@ public class FlasherChooser extends ListActivity {
         LoadPrefs();
         super.onCreate(savedInstanceState);
 
-
         currentDir = new File(Environment.getExternalStorageDirectory().getAbsolutePath());
         fill(currentDir);
     }
@@ -56,7 +55,7 @@ public class FlasherChooser extends ListActivity {
         Collections.sort(dir);
         Collections.sort(fls);
         dir.addAll(fls);
-        if (!f.getName().equalsIgnoreCase("sdcard"))
+        if (!f.getName().equalsIgnoreCase("0"))
             dir.add(0, new Option("..", "Parent Directory", f.getParent()));
         adapter = new FileArrayAdapter(FlasherChooser.this, R.layout.file_view, dir);
         this.setListAdapter(adapter);
@@ -100,12 +99,12 @@ public class FlasherChooser extends ListActivity {
 
     private void onFileClick(Option o)
     {
-        String sourcezippath = "" + o.getPath();
-        String sourcezipname = "" + o.getName();
+        String SZP = "" + o.getPath();
+        String SZN = "" + o.getName();
 
         Intent iIntent = new Intent(this, Flasher.class);
-        iIntent.putExtra("key1", sourcezippath);
-        iIntent.putExtra("key3", sourcezipname);
+        iIntent.putExtra("key1", SZP);
+        iIntent.putExtra("key3", SZN);
         startActivity(iIntent);
 
         finish();
@@ -117,7 +116,6 @@ public class FlasherChooser extends ListActivity {
     }
 
     private void LoadPrefs() {
-        //cb = (CheckBox) findViewById(R.id.checkBoxDark);
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
         boolean cbValue = sp.getBoolean("CHECKBOX", false);
         if(cbValue){
@@ -125,10 +123,6 @@ public class FlasherChooser extends ListActivity {
 
         }else{
             setTheme(R.style.LightTheme);
-
         }
-
-
     }
-
 }

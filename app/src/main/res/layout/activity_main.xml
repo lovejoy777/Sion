@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
 
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content" >
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
 
         <TextView
@@ -14,7 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:layout_marginBottom="20dp"
-            android:text="Home"
+            android:text="@string/homeTitle"
             android:id="@+id/textView9"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
@@ -45,7 +47,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="60dp"
-            android:text="Init.d Installer\nscripts are device specific"
+            android:text="@string/homebutton1txt"
             android:id="@+id/buttoninitd"
             android:layout_toEndOf="@+id/imageView"
             android:layout_below="@+id/imageView5"
@@ -70,7 +72,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="60dp"
-            android:text="Flashable.zip Installer\nroms, gapps, mods etc"
+            android:text="@string/homebutton2txt"
             android:id="@+id/buttonflasher"
             android:layout_centerVertical="true"
             android:layout_below="@+id/buttoninitd"
@@ -95,7 +97,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="60dp"
-            android:text="Build.Prop Installer\nComing Soon"
+            android:text="@string/homebutton3txt"
             android:id="@+id/buildpropbutton"
             android:layout_centerVertical="true"
             android:layout_below="@+id/buttonflasher"

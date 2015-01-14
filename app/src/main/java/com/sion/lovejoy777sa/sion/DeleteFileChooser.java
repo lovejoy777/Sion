@@ -13,6 +13,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * Created by lovejoy on 24/10/14.
@@ -28,9 +29,10 @@ public class DeleteFileChooser extends ListActivity {
         LoadPrefs();
         super.onCreate(savedInstanceState);
 
-        String systdest = "/system/etc/init.d/";
+        String startdir = "/system/etc/init.d";
+        //system/etc/init.d
 
-        currentDir = new File(systdest);
+        currentDir = new File(startdir);
         fill(currentDir);
     }
     private void fill(File f)
@@ -47,7 +49,7 @@ public class DeleteFileChooser extends ListActivity {
                         dir.add(new Option(ff.getName(),"Folder",ff.getAbsolutePath()));
                     else
                     {
-                        fls.add(new Option(ff.getName(),"File Size: "+ff.length(),ff.getAbsolutePath()));
+                        fls.add(new Option(ff.getName(), "File Size: " + ff.length(), ff.getAbsolutePath()));
                     }
                 }
             }
@@ -58,19 +60,27 @@ public class DeleteFileChooser extends ListActivity {
         Collections.sort(dir);
         Collections.sort(fls);
         dir.addAll(fls);
-        if(!f.getName().equalsIgnoreCase("sdcard"))
+        if(!f.getName().equalsIgnoreCase("init.d"))
             dir.add(0,new Option("..","Parent Directory",f.getParent()));
         adapter = new FileArrayAdapter(DeleteFileChooser.this,R.layout.file_view,dir);
         this.setListAdapter(adapter);
     }
 
+    Stack<File> dirStack = new Stack<File>();
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
 
         super.onListItemClick(l, v, position, id);
         Option o = adapter.getItem(position);
-        if(o.getData().equalsIgnoreCase("folder")||o.getData().equalsIgnoreCase("parent directory")){
+        if (o.getData().equalsIgnoreCase("folder")){
+
+            dirStack.push(currentDir);
             currentDir = new File(o.getPath());
+            fill(currentDir);
+        }
+        else
+        if(o.getData().equalsIgnoreCase("parent directory")){
+            currentDir = dirStack.pop();
             fill(currentDir);
         }
         else
@@ -78,39 +88,44 @@ public class DeleteFileChooser extends ListActivity {
             onFileClick(o);
         }
     }
+
+    @Override
+    public void onBackPressed() {
+
+        if (dirStack.size()== 0)
+        {
+            finish();
+            return;
+        }
+        currentDir = dirStack.pop();
+        fill(currentDir);
+    }
     private void onFileClick(Option o)
     {
-        String sourcezippath = "" + o.getPath();
+        String SZP = "" + o.getPath();
         String systdest = "/system/etc/init.d/";
-        String sourcezipname = "" + o.getName();
-
-        Intent iIntent = new Intent(this, InitD.class);
-        iIntent.putExtra("key1", sourcezippath);
+        String SZN = "" + o.getName();
+        Intent iIntent = new Intent(this,InitD.class);
+        iIntent.putExtra("key1", SZP);
         iIntent.putExtra("key2", systdest);
-        iIntent.putExtra("key3", sourcezipname);
+        iIntent.putExtra("key3", SZN);
         startActivity(iIntent);
 
         finish();
     }
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
     }
 
     private void LoadPrefs() {
-        //cb = (CheckBox) findViewById(R.id.checkBoxDark);
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
         boolean cbValue = sp.getBoolean("CHECKBOX", false);
         if(cbValue){
             setTheme(R.style.DarkTheme);
-
         }else{
             setTheme(R.style.LightTheme);
-
         }
-
-
     }
 
 }
